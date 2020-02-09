@@ -1,22 +1,18 @@
 #include<stdio.h>
 #include<graphics.h>
+#include<iostream>
 #include "header.h"
 
-#define TRIANGLE_HEIGHT 140
-#define TRIANGLE_BASE 300
-#define TRIANGLE_STARTING 615
-#define TRIANGLE_ENDING TRIANGLE_STARTING+TRIANGLE_BASE
-#define SPACE_VERTICAL 70
+using namespace std;
 
-#define BOX_LENGTH 400
-#define BOX_STARTING 565
-#define BOX_ENDING BOX_STARTING+BOX_LENGTH
-#define PLACE_WIDTH BOX_LENGTH/4
+
 
 void drawBoard(){
 
-    initwindow(1530,850,"GAME");
-    setbkcolor(1);
+    initwindow(1530,850,"GAME",0,0,false,true);
+    setbkcolor(2);
+    int x = BOX_STARTING;
+    int y = SPACE_VERTICAL+TRIANGLE_HEIGHT;
 
 
     //top triangle
@@ -75,6 +71,18 @@ void drawBoard(){
     line(TRIANGLE_STARTING+TRIANGLE_BASE/2,SPACE_VERTICAL+TRIANGLE_HEIGHT+BOX_LENGTH,
          TRIANGLE_STARTING+TRIANGLE_BASE/2,SPACE_VERTICAL+TRIANGLE_HEIGHT+BOX_LENGTH+TRIANGLE_HEIGHT);
 
+    placePieces(x,y);
+
+    //WhitePiecs piece();
+    //(BOX_STARTING,SPACE_VERTICAL+TRIANGLE_HEIGHT,10);
+    //piece.placePieces(BOX_STARTING,SPACE_VERTICAL+TRIANGLE_HEIGHT);
+
+
     getch();
+
+    scanf("%d%d",&x,&y);
+
+    drawBoard();
+
     closegraph();
 }

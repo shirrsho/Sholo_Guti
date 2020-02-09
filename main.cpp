@@ -5,5 +5,6 @@
 int main(){
 
     drawBoard();
+    //placePieces();
     return 0;
 }
