@@ -83,6 +83,7 @@ void drawBoard(){
     scanf("%d%d",&x,&y);
 
     drawBoard();
+    //placePieces();
 
     closegraph();
 }

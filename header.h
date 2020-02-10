@@ -11,7 +11,13 @@
 #define BOX_ENDING BOX_STARTING+BOX_LENGTH
 #define PLACE_WIDTH BOX_LENGTH/4
 
-#include<iostream>
+#define REDS 1
+#define GRAYS 2
+
+//#include<iostream>
+
+
 
 void drawBoard();
 void placePieces(int,int);
+void initializePieces();
