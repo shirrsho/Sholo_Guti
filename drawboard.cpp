@@ -10,9 +10,11 @@ using namespace std;
 void drawBoard(){
 
     initwindow(1530,850,"GAME",0,0,false,true);
-    setbkcolor(2);
+    //setbkcolor(2);
     int x = BOX_STARTING;
     int y = SPACE_VERTICAL+TRIANGLE_HEIGHT;
+
+    setcolor(LIGHTBLUE);
 
 
     //top triangle
@@ -71,7 +73,7 @@ void drawBoard(){
     line(TRIANGLE_STARTING+TRIANGLE_BASE/2,SPACE_VERTICAL+TRIANGLE_HEIGHT+BOX_LENGTH,
          TRIANGLE_STARTING+TRIANGLE_BASE/2,SPACE_VERTICAL+TRIANGLE_HEIGHT+BOX_LENGTH+TRIANGLE_HEIGHT);
 
-    placePieces(x,y);
+    //placePieces(x,y);
 
     //WhitePiecs piece();
     //(BOX_STARTING,SPACE_VERTICAL+TRIANGLE_HEIGHT,10);
@@ -80,10 +82,12 @@ void drawBoard(){
 
     getch();
 
-    scanf("%d%d",&x,&y);
+    //scanf("%d%d",&x,&y);
 
-    drawBoard();
-    //placePieces();
+    //drawBoard();
+
+    initializePieces();
+    getch();
 
     closegraph();
 }
