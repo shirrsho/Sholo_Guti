@@ -1,16 +1,18 @@
 #include<stdio.h>
 #include<graphics.h>
 #include<iostream>
-#include "header.h"
+#include "header.hpp"
 
 using namespace std;
 
-
+extern pair<int,int> yellow_pcs[16];
+extern pair<int,int> white_pcs[16];
 
 void drawBoard(){
 
     initwindow(1530,850,"GAME",0,0,false,true);
     //setbkcolor(2);
+
     int x = BOX_STARTING;
     int y = SPACE_VERTICAL+TRIANGLE_HEIGHT;
 
@@ -86,7 +88,19 @@ void drawBoard(){
 
     //drawBoard();
 
-    initializePieces();
+    for(int i = 0 ; i < 16 ; i++){
+        setcolor(LIGHTGRAY);
+        placePieces(white_pcs[i].first,white_pcs[i].second);
+        setcolor(LIGHTGREEN);
+        placePieces(yellow_pcs[i].first,yellow_pcs[i].second);
+    }
+
+    for(int i = 0 ; i < 16 ;i ++){
+        printf("%d %d\t%d %d\n",white_pcs[i].first,white_pcs[i].second,yellow_pcs[i].first,yellow_pcs[i].second);
+    }
+    getch();
+    scanf("%d%d",&x,&y);
+    move_piece(make_pair(x,y),make_pair(BOX_STARTING,SPACE_VERTICAL+TRIANGLE_HEIGHT+PLACE_WIDTH*2),1);
     getch();
 
     closegraph();

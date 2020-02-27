@@ -1,5 +1,5 @@
 #include<graphics.h>
-#include "header.h"
+#include "header.hpp"
 
 void placePieces(int x, int y){
 
