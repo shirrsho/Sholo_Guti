@@ -1,13 +1,39 @@
 
 #include<graphics.h>
-#include "header.h"
+#include "header.hpp"
 #include<utility>
 #include<iostream>
+#include<stdio.h>
+#include<list>
+#include<queue>
 
 using namespace std;
 
 pair<int,int> yellow_pcs[16];
 pair<int,int> white_pcs[16];
+
+struct Board{
+    pair<int,int> coord;
+    queue< pair<int,int> > neighs;
+    queue< pair<int,int> > lines;
+}board[37];
+
+//void generalMoveSelector(){
+//    int i;
+//    FILE *fp;
+//    int aa,bb;
+//    fp = fopen("general_moves.txt","r");
+//    fscanf(fp,"%d",&i);
+//    while(!feof(fp)){//j<37 chilo
+//        fscanf(fp,"%d",&aa);
+//        if(aa<50){i=aa;continue;}
+//        fscanf(fp,"%d",&bb);
+//        pair<int,int> a = make_pair(aa,bb);
+//        board[i].neighs.push(a);
+//    }
+//}
+
+
 
 void initializePieces()
 {
@@ -15,6 +41,7 @@ void initializePieces()
     //setcolor(LIGHTGRAY);
     //placePieces(TRIANGLE_STARTING,SPACE_VERTICAL);
     white_pcs[0] = make_pair(TRIANGLE_STARTING,SPACE_VERTICAL);
+
     //placePieces(TRIANGLE_STARTING+TRIANGLE_BASE/2,SPACE_VERTICAL);
     white_pcs[1] = make_pair(TRIANGLE_STARTING+TRIANGLE_BASE/2,SPACE_VERTICAL);
     //placePieces(TRIANGLE_ENDING,SPACE_VERTICAL);
@@ -62,4 +89,38 @@ void initializePieces()
         it++;
     }
 
+    for(int i = 0; i < 16 ; i++){
+        //board[j++].coord = white_pcs[i];
+        //board[j++].coord = yellow_pcs[i];
+    }
+
+//    board[0].neighs.insert(white_pcs[1]);board[0].neighs.insert(white_pcs[3]);
+//    board[1].neighs.insert()
+
+    boardMoveSelector();
+
+    generalMoveSelector();
+
+    killMoveSelector();
+
+//    fp = fopen("general_moves.txt","r");
+//    fscanf(fp,"%d",&i);
+//    while(!feof(fp)){//j<37 chilo
+//        fscanf(fp,"%d",&aa);
+//        if(aa<50){i=aa;continue;}
+//        fscanf(fp,"%d",&bb);
+//        pair<int,int> a = make_pair(aa,bb);
+//        board[i].neighs.push(a);
+//    }
+
+
+//    for(int i = 0 ; i < 37 ; i++){
+//        printf("\n\n");
+//        while(!board[i].neighs.empty()) {
+//            printf("%d %d\t",board[i].neighs.front().first,board[i].neighs.front().second);
+//            board[i].neighs.pop();
+//        }
+//    }
+
+    return;
 }

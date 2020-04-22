@@ -3,6 +3,8 @@
 #include "header.hpp"
 #include<utility>
 #include<iostream>
+#include<conio.h>
+#include<stdlib.h>
 
 using namespace std;
 
@@ -15,8 +17,12 @@ using namespace std;
 //}redPieces[16],grayPiece[16];
 
 int main(){
-    initializePieces();
-    drawBoard();
+    int a = rand();
+    printf("%d ",a);
+    a = rand();
+    printf("%d",a);
+
+    menu();
     //placePieces();
     return 0;
 }
