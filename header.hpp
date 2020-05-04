@@ -18,6 +18,7 @@
 #define PLAYER_WHITE 1
 #define PLAYER_YELLOW 2
 
+#include<bits/stdc++.h>
 
 
 

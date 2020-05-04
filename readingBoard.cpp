@@ -34,6 +34,7 @@ void generalMoveSelector(){
         pair<int,int> a = make_pair(aa,bb);
         board[i].neighs.push(a);
     }
+    fclose(fp);
 }
 
 void boardMoveSelector(){
@@ -44,7 +45,7 @@ void boardMoveSelector(){
 
         fscanf(fp,"%d",&aa);
         fscanf(fp,"%d",&bb);
-        printf("%d %d ",aa,bb);
+        //printf("%d %d ",aa,bb);
         //fscanf(fp,"%d",&bb);
         board[i].coord.first = aa;
         board[i].coord.second = bb;

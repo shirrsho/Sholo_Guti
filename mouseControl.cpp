@@ -98,7 +98,7 @@ void mouseControl(){
                     if(((x>white_pcs[i].first-10)&&(x<white_pcs[i].first+10))&&
                        ((y>white_pcs[i].second-10)&&(y<white_pcs[i].second+10))){
                         cleardevice();
-                        drawBoard();
+                        drawBoard();setcolor(WHITE);circle(white_pcs[i].first,white_pcs[i].second,11);
                         take = mouseControl2(i,PLAYER_WHITE);
                         //while(!take) take = mouseControl2(i,PLAYER_WHITE);
                         if(take&&AI_MODE) gameAI();
@@ -111,6 +111,7 @@ void mouseControl(){
                        ((y>yellow_pcs[i].second-10)&&(y<yellow_pcs[i].second+10))){
                         cleardevice();
                         drawBoard();
+                        setcolor(LIGHTGREEN);circle(yellow_pcs[i].first,yellow_pcs[i].second,11);
                         take = mouseControl2(i,PLAYER_YELLOW);
                         if(take&&AI_MODE) gameAI();
                         else if(take)WhitesMove = true;

@@ -25,7 +25,6 @@ void drawBoard(){
     //int x = BOX_STARTING;
     //int y = SPACE_VERTICAL+TRIANGLE_HEIGHT;
 
-
     setcolor(LIGHTBLUE);
 
 

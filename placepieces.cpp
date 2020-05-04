@@ -22,7 +22,7 @@ void placePieces(int x, int y){
 //    if(x==BOX_STARTING+BOX_LENGTH/2 && y==SPACE_VERTICAL+TRIANGLE_HEIGHT+BOX_LENGTH) radius = 20;
 //    if(x==BOX_STARTING+BOX_LENGTH/2 && y==SPACE_VERTICAL+TRIANGLE_HEIGHT/2) radius = 15;
 //    if(x==BOX_STARTING+BOX_LENGTH/2 && y==SPACE_VERTICAL+TRIANGLE_HEIGHT+BOX_LENGTH+TRIANGLE_HEIGHT/2) radius = 15;
-    for(int i = 1 ; i <= radius; i++){
+    for(int i = 1 ; i <= radius; i=i++){
         circle(x,y,i);
         //if(i>10) setcolor(LIGHTRED);
         //if(i>15) setcolor(RED);
