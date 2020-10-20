@@ -18,22 +18,8 @@ struct Board{
     queue< pair<int,int> > lines;
 }board[37];
 
-//void generalMoveSelector(){
-//    int i;
-//    FILE *fp;
-//    int aa,bb;
-//    fp = fopen("general_moves.txt","r");
-//    fscanf(fp,"%d",&i);
-//    while(!feof(fp)){//j<37 chilo
-//        fscanf(fp,"%d",&aa);
-//        if(aa<50){i=aa;continue;}
-//        fscanf(fp,"%d",&bb);
-//        pair<int,int> a = make_pair(aa,bb);
-//        board[i].neighs.push(a);
-//    }
-//}
 
-
+// Initializing the board
 
 void initializePieces()
 {
@@ -89,38 +75,12 @@ void initializePieces()
         it++;
     }
 
-    for(int i = 0; i < 16 ; i++){
-        //board[j++].coord = white_pcs[i];
-        //board[j++].coord = yellow_pcs[i];
-    }
-
-//    board[0].neighs.insert(white_pcs[1]);board[0].neighs.insert(white_pcs[3]);
-//    board[1].neighs.insert()
 
     boardMoveSelector();
 
     generalMoveSelector();
 
     killMoveSelector();
-
-//    fp = fopen("general_moves.txt","r");
-//    fscanf(fp,"%d",&i);
-//    while(!feof(fp)){//j<37 chilo
-//        fscanf(fp,"%d",&aa);
-//        if(aa<50){i=aa;continue;}
-//        fscanf(fp,"%d",&bb);
-//        pair<int,int> a = make_pair(aa,bb);
-//        board[i].neighs.push(a);
-//    }
-
-
-//    for(int i = 0 ; i < 37 ; i++){
-//        printf("\n\n");
-//        while(!board[i].neighs.empty()) {
-//            printf("%d %d\t",board[i].neighs.front().first,board[i].neighs.front().second);
-//            board[i].neighs.pop();
-//        }
-//    }
 
     return;
 }

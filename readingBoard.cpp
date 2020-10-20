@@ -18,7 +18,10 @@ extern struct Board{
     queue< pair<int,int> > lines;
 }board[37];
 
-void generalMoveSelector(){
+
+
+void generalMoveSelector(){                                                                // Function indicates which
+                                                                                           // moves are possible from a place
     for(int i = 0 ; i < 20 ; i++){
         while(!board[i].neighs.empty()) board[i].neighs.pop();
     }

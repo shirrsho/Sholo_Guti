@@ -21,6 +21,20 @@ extern bool TWO_PLAYER_MODE;
 extern bool AI_MODE;
 
 
+/*
+
+    - Finds all possible moves
+
+*/
+
+
+/*
+    - ATTENTION !!!
+    - When the AI cannot find any safe move for a piece then it misbehaves
+    - Updated:: SOlved
+*/
+
+
 std::queue< pair<int,int> > availableGenMoves(std::pair<int,int> x){
 
     generalMoveSelector();
@@ -41,6 +55,16 @@ std::queue< pair<int,int> > availableGenMoves(std::pair<int,int> x){
     generalMoveSelector();
     return ret;
 }
+
+
+
+/*
+
+    - AI search for a safe move from where he won't be killed down
+
+    - Finds if the next move is safe
+
+*/
 
 
 bool isMoveSafe(int from,std::pair<int,int> to,int whichPlayer){

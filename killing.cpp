@@ -21,6 +21,13 @@ extern bool TWO_PLAYER_MODE;
 extern bool AI_MODE;
 
 
+/*
+
+    - The following funtions find the recursive killing moves if possible
+
+*/
+
+
 bool recursiveKill2(int from, int whichPlayer){
     killMoveSelector();
     generalMoveSelector();
@@ -197,6 +204,11 @@ bool killMove(int from, int to, int whichPlayer){
                                 white_pcs[from] = board[to].coord;
                                 yellow_pcs[j] = make_pair(0,0);
                                 cleardevice(); drawBoard();
+                                if(TWO_PLAYER_MODE)
+                                {
+                                    killMoveSelector();
+                                    return true;
+                                }
                                 while(recursiveKill(from,PLAYER_WHITE)||recursiveKill2(from,PLAYER_WHITE)){
                                     delay(500);
                                     cleardevice(); drawBoard();
@@ -223,6 +235,11 @@ bool killMove(int from, int to, int whichPlayer){
                                 white_pcs[from] = board[to].coord;
                                 yellow_pcs[j] = make_pair(0,0);
                                 cleardevice(); drawBoard();
+                                if(TWO_PLAYER_MODE)
+                                {
+                                    killMoveSelector();
+                                    return true;
+                                }
                                 while(recursiveKill(from,PLAYER_WHITE)||recursiveKill2(from,PLAYER_WHITE)){
                                     delay(500);
                                     cleardevice(); drawBoard();
@@ -257,6 +274,11 @@ bool killMove(int from, int to, int whichPlayer){
                                 yellow_pcs[from] = board[to].coord;
                                 white_pcs[j] = make_pair(0,0);
                                 cleardevice(); drawBoard();
+                                if(TWO_PLAYER_MODE)
+                                {
+                                    killMoveSelector();
+                                    return true;
+                                }
                                 while(recursiveKill(from,PLAYER_YELLOW)||recursiveKill2(from,PLAYER_YELLOW)){
                                     delay(500);
                                     cleardevice(); drawBoard();
@@ -282,6 +304,11 @@ bool killMove(int from, int to, int whichPlayer){
                                 yellow_pcs[from] = board[to].coord;
                                 white_pcs[j] = make_pair(0,0);
                                 cleardevice(); drawBoard();
+                                if(TWO_PLAYER_MODE)
+                                {
+                                    killMoveSelector();
+                                    return true;
+                                }
                                 while(recursiveKill(from,PLAYER_YELLOW)||recursiveKill2(from,PLAYER_YELLOW)){
                                     delay(500);
                                     cleardevice(); drawBoard();

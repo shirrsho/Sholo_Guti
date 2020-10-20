@@ -20,6 +20,17 @@ extern struct Board{
 extern bool TWO_PLAYER_MODE;
 extern bool AI_MODE;
 
+/*
+
+    - The following function reads the file to find the positions of the pieces
+
+    - And writes about the new positions
+
+    - Stores the data of the board
+
+*/
+
+
 void set(){
 
     POINT cursor;
@@ -45,6 +56,8 @@ void set(){
     //menu();
 }
 }
+
+
 
 void initializeGeneralMoves(){
 
