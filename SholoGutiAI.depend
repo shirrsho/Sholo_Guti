@@ -1,0 +1,101 @@
+# depslib dependency file v1.0
+1603254476 source:c:\users\asus\desktop\litecpp\shologutiai\main.cpp
+	<stdio.h>
+	"header.hpp"
+
+1581315002 c:\users\asus\desktop\litecpp\shologutiai\header.h
+
+1629314840 source:c:\users\asus\desktop\litecpp\shologutiai\drawboard.cpp
+	<stdio.h>
+	<graphics.h>
+	<iostream>
+	"header.hpp"
+	<list>
+	<queue>
+
+1603254477 source:c:\users\asus\desktop\litecpp\shologutiai\placepieces.cpp
+	<graphics.h>
+	"header.hpp"
+	<iostream>
+	<queue>
+
+1581313669 source:c:\users\asus\desktop\litecpp\shologutiai\initializepieces.c
+
+1582573630 source:c:\users\asus\desktop\litecpp\shologutiai\initializepices.cpp
+	<graphics.h>
+	"header.h"
+
+1629317266 c:\users\asus\desktop\litecpp\shologutiai\header.hpp
+	<bits/stdc++.h>
+
+1603254476 source:c:\users\asus\desktop\litecpp\shologutiai\initializepieces.cpp
+	<graphics.h>
+	"header.hpp"
+	<utility>
+	<iostream>
+	<stdio.h>
+	<list>
+	<queue>
+
+1603254477 source:c:\users\asus\desktop\litecpp\shologutiai\move_piece.cpp
+	<stdio.h>
+	<graphics.h>
+	<iostream>
+	"header.hpp"
+	<list>
+	<math.h>
+	<queue>
+
+1629315494 source:c:\users\asus\desktop\litecpp\shologutiai\mousecontrol.cpp
+	<stdio.h>
+	<graphics.h>
+	<iostream>
+	"header.hpp"
+	<queue>
+	<stdlib.h>
+
+1629315811 source:c:\users\asus\desktop\litecpp\shologutiai\menu.cpp
+	<stdio.h>
+	<graphics.h>
+	"header.hpp"
+	<utility>
+	<iostream>
+	<conio.h>
+	<stdlib.h>
+
+1603254477 source:c:\users\asus\desktop\litecpp\shologutiai\writingboard.cpp
+	<stdio.h>
+	<graphics.h>
+	<iostream>
+	"header.hpp"
+	<queue>
+	<stdlib.h>
+
+1603254477 source:c:\users\asus\desktop\litecpp\shologutiai\readingboard.cpp
+	<graphics.h>
+	"header.h"
+	<utility>
+	<iostream>
+	<stdio.h>
+	<list>
+	<queue>
+
+1603254476 source:c:\users\asus\desktop\litecpp\shologutiai\gameai.cpp
+	<stdio.h>
+	<graphics.h>
+	<iostream>
+	"header.hpp"
+	<queue>
+	<stdlib.h>
+
+1603254476 source:c:\users\asus\desktop\litecpp\shologutiai\killing.cpp
+	<stdio.h>
+	<graphics.h>
+	<iostream>
+	"header.hpp"
+	<queue>
+	<stdlib.h>
+
+1588171463 source:c:\users\asus\desktop\litecpp\shologutiai\header.hpp
+	<bits/stdc++.h>
+

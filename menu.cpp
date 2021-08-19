@@ -21,68 +21,78 @@ bool AI_MODE = false;
     - Pieces are BLACK and RED
 
 */
-void menu(){
+void menu()
+{
+    TWO_PLAYER_MODE = AI_MODE = false;
     closegraph();
     initwindow(1530,850,"MENU",0,0,false,true);
-    setbkcolor(LIGHTGRAY);
+    //setbkcolor(WHITE);
     settextstyle(10,0,5);
-    setcolor(BLACK);
-    setbkcolor(LIGHTGRAY);
+    //setbkcolor(LIGHTGRAY);
+    setcolor(WHITE);
     outtextxy(600,150,"Two Player");
     outtextxy(600,200,"AI Mode");
     int turn = 45,X,Y;
-    int selected;
-
+    int selected = -1;
+    //setbkcolor(LIGHTGRAY);
     POINT cursor;
-    while(1){
+    while(1)
+    {
         delay(100);
         GetCursorPos(&cursor);
-        setbkcolor(LIGHTGRAY);
-        if(GetAsyncKeyState(VK_LBUTTON)){
+        //setbkcolor(LIGHTGRAY);
+        if(GetAsyncKeyState(VK_LBUTTON))
+        {
+            //setbkcolor(LIGHTGRAY);
             if(turn == 0) selected = 1;
             else if(turn == 1) selected = 2;
             else continue;
             break;
         }
-        if(cursor.x>=600&&cursor.x<=800&&cursor.y>=175&&cursor.y<=220){
-            if(turn!=0){
-            cleardevice();
-            //initwindow(1530,850,"MENU",0,0,false,true);
-            setbkcolor(LIGHTGRAY);
-            settextstyle(10,0,5);
-            setcolor(RED);
-            outtextxy(600,150,"Two Player");
-            setcolor(BLACK);
-            outtextxy(600,200,"AI Mode");
-            turn=0;
+        if(cursor.x>=600&&cursor.x<=800&&cursor.y>=175&&cursor.y<=220)
+        {
+            if(1)//(turn!=0)
+            {
+                cleardevice();
+                //initwindow(1530,850,"MENU",0,0,false,true);
+                //setbkcolor(LIGHTGRAY);
+                settextstyle(10,0,5);
+                setcolor(LIGHTRED);
+                outtextxy(600,150,"Two Player");
+                setcolor(WHITE);
+                outtextxy(600,200,"AI Mode");
+                turn=0;
             }
         }
 
-        else if(cursor.x>=600&&cursor.x<=800&&cursor.y>=225&&cursor.y<=275){
-            if(turn!=0){
-            cleardevice();
-            //initwindow(1530,850,"MENU",0,0,false,true);
-            setbkcolor(LIGHTGRAY);
-            settextstyle(10,0,5);
-            setcolor(BLACK);
-            outtextxy(600,150,"Two Player");
-            setcolor(RED);
-            outtextxy(600,200,"AI Mode");
-            turn=1;
+        else if(cursor.x>=600&&cursor.x<=800&&cursor.y>=225&&cursor.y<=275)
+        {
+            if(1)//(turn!=0)
+            {
+                cleardevice();
+                //initwindow(1530,850,"MENU",0,0,false,true);
+                //setbkcolor(LIGHTGRAY);
+                settextstyle(10,0,5);
+                setcolor(WHITE);
+                outtextxy(600,150,"Two Player");
+                setcolor(LIGHTRED);
+                outtextxy(600,200,"AI Mode");
+                turn=1;
             }
         }
 
-        else if(turn<2){
+        else if(turn<2)
+        {
             turn+=2;
             //initwindow(1530,850,"MENU",0,0,false,true);
-            setbkcolor(LIGHTGRAY);
+            //setbkcolor(LIGHTGRAY);
             settextstyle(10,0,5);
-            setcolor(BLACK);
+            setcolor(WHITE);
             outtextxy(600,150,"Two Player");
             outtextxy(600,200,"AI Mode");
             //turn++;
         }
-        setbkcolor(LIGHTGRAY);
+        //setbkcolor(LIGHTGRAY);
     }
     //getch();
     printf("\n\n\t\tPlay one of the most common game of rural Bangladesh\n\n");
@@ -98,19 +108,24 @@ void menu(){
 //        drawBoard();
 //        mouseControl();
 
-    if(selected == 1){
+    setbkcolor(WHITE);
+    if(selected == 1)
+    {
         TWO_PLAYER_MODE = true;
         initializePieces();
         //initwindow(1530,850,"GAME",0,0,false,true);
         cleardevice();
+        setbkcolor(WHITE);
         drawBoard();
         mouseControl();
     }
-    else if(selected == 2){
+    else if(selected == 2)
+    {
         AI_MODE = true;
         initializePieces();
         //initwindow(1530,850,"GAME",0,0,false,true);
         cleardevice();
+        setbkcolor(WHITE);
         drawBoard();
         mouseControl();
     }

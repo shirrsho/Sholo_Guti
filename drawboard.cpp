@@ -10,12 +10,13 @@ using namespace std;
 extern pair<int,int> yellow_pcs[16];  // yellow_pcs are basically the red ones
 extern pair<int,int> white_pcs[16];   // white_pcs are basically the black ones
 
-extern struct Board{                  // Board coordinate indicating structure
+extern struct Board                   // Board coordinate indicating structure
+{
     pair<int,int> coord;
     queue< pair<int,int> > neighs;
     queue< pair<int,int> > lines;
 
-}board[37];
+} board[37];
 
 
 extern bool TWO_PLAYER_MODE;
@@ -28,20 +29,27 @@ extern bool AI_MODE;
 */
 
 
-void drawBoard(){
+void drawBoard()
+{
 
+    setbkcolor(WHITE);
     setcolor(BLACK);
+    settextstyle(10,0,3);
 
     // Distribution of pieces
 
+
     if(TWO_PLAYER_MODE)
     {
-        outtextxy(1000,150,"PLAYER 2 BLACK");
-        outtextxy(1000,600,"PlAYER 1 RED");
+        outtextxy(1100,150,"PLAYER 2 BLACK");
+        outtextxy(1100,600,"PlAYER 1 RED");
+        outtextxy(1100,800,"END GAME");
     }
-    else{
-        outtextxy(1000,150,"COMPUTER BLACK");
-        outtextxy(1000,600,"PLAYER RED");
+    else
+    {
+        outtextxy(1100,150,"COMPUTER BLACK");
+        outtextxy(1100,600,"PLAYER RED");
+        outtextxy(1100,800,"END GAME");
     }
 
     setcolor(BLUE);
@@ -72,14 +80,14 @@ void drawBoard(){
     line(BOX_STARTING+2*PLACE_WIDTH,SPACE_VERTICAL+TRIANGLE_HEIGHT,BOX_STARTING+2*PLACE_WIDTH,SPACE_VERTICAL+BOX_LENGTH+TRIANGLE_HEIGHT);
     line(BOX_STARTING+3*PLACE_WIDTH,SPACE_VERTICAL+TRIANGLE_HEIGHT,BOX_STARTING+3*PLACE_WIDTH,SPACE_VERTICAL+BOX_LENGTH+TRIANGLE_HEIGHT);
 
-        //diagonals
-        line(BOX_STARTING,SPACE_VERTICAL+TRIANGLE_HEIGHT,BOX_ENDING,SPACE_VERTICAL+TRIANGLE_HEIGHT+BOX_LENGTH);
-        line(BOX_STARTING+2*PLACE_WIDTH,SPACE_VERTICAL+TRIANGLE_HEIGHT,BOX_ENDING,SPACE_VERTICAL+TRIANGLE_HEIGHT+BOX_LENGTH-2*PLACE_WIDTH);
-        line(BOX_STARTING,SPACE_VERTICAL+TRIANGLE_HEIGHT+2*PLACE_WIDTH,BOX_ENDING-2*PLACE_WIDTH,SPACE_VERTICAL+TRIANGLE_HEIGHT+BOX_LENGTH);
+    //diagonals
+    line(BOX_STARTING,SPACE_VERTICAL+TRIANGLE_HEIGHT,BOX_ENDING,SPACE_VERTICAL+TRIANGLE_HEIGHT+BOX_LENGTH);
+    line(BOX_STARTING+2*PLACE_WIDTH,SPACE_VERTICAL+TRIANGLE_HEIGHT,BOX_ENDING,SPACE_VERTICAL+TRIANGLE_HEIGHT+BOX_LENGTH-2*PLACE_WIDTH);
+    line(BOX_STARTING,SPACE_VERTICAL+TRIANGLE_HEIGHT+2*PLACE_WIDTH,BOX_ENDING-2*PLACE_WIDTH,SPACE_VERTICAL+TRIANGLE_HEIGHT+BOX_LENGTH);
 
-        line(BOX_ENDING,SPACE_VERTICAL+TRIANGLE_HEIGHT,BOX_STARTING,SPACE_VERTICAL+TRIANGLE_HEIGHT+BOX_LENGTH);
-        line(BOX_ENDING-2*PLACE_WIDTH,SPACE_VERTICAL+TRIANGLE_HEIGHT,BOX_STARTING,SPACE_VERTICAL+TRIANGLE_HEIGHT+BOX_LENGTH-2*PLACE_WIDTH);
-        line(BOX_ENDING,SPACE_VERTICAL+TRIANGLE_HEIGHT+2*PLACE_WIDTH,BOX_STARTING+2*PLACE_WIDTH,SPACE_VERTICAL+TRIANGLE_HEIGHT+BOX_LENGTH);
+    line(BOX_ENDING,SPACE_VERTICAL+TRIANGLE_HEIGHT,BOX_STARTING,SPACE_VERTICAL+TRIANGLE_HEIGHT+BOX_LENGTH);
+    line(BOX_ENDING-2*PLACE_WIDTH,SPACE_VERTICAL+TRIANGLE_HEIGHT,BOX_STARTING,SPACE_VERTICAL+TRIANGLE_HEIGHT+BOX_LENGTH-2*PLACE_WIDTH);
+    line(BOX_ENDING,SPACE_VERTICAL+TRIANGLE_HEIGHT+2*PLACE_WIDTH,BOX_STARTING+2*PLACE_WIDTH,SPACE_VERTICAL+TRIANGLE_HEIGHT+BOX_LENGTH);
 
 
 
@@ -99,7 +107,8 @@ void drawBoard(){
 
     // Placing the pieces
 
-    for(int i = 0 ; i < 16 ; i++){
+    for(int i = 0 ; i < 16 ; i++)
+    {
         //printf("%d %d\n",white_pcs[i].first,white_pcs[i].second);
         setcolor(BLACK);
         placePieces(white_pcs[i].first,white_pcs[i].second);
@@ -109,7 +118,8 @@ void drawBoard(){
 
 
     setcolor(BLUE);
-    for(int i = 0 ; i < 37 ; i++){
+    for(int i = 0 ; i < 37 ; i++)
+    {
         circle(board[i].coord.first,board[i].coord.second,5);
     }
 

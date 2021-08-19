@@ -21,7 +21,7 @@
 #include<bits/stdc++.h>
 
 
-
+int main();
 void menu();
 void drawBoard();
 void placePieces(int,int);
