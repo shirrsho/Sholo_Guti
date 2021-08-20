@@ -251,3 +251,142 @@ void gameAI()
 
     return;
 }
+
+
+
+
+// AivAi
+
+
+void gameAI2()
+{
+    int indexAI = rand();
+    indexAI = indexAI%16;
+    int to = rand();
+    to = to%37;
+    bool move = false;
+    int count=0;
+    queue< pair<int,int> > genMoves;
+    //bool a = killMove(indexAI,to,PLAYER_WHITE);
+    killMoveSelector();
+    generalMoveSelector();
+    for(int i = 0 ; i < 16 ; i++)
+    {
+        killMoveSelector();
+        if(yellow_pcs[i] == make_pair(0,0)) continue;
+        while(recursiveKill(i,PLAYER_YELLOW)||recursiveKill2(i,PLAYER_YELLOW))
+        {
+            count++;
+            printf("\n\n%d\n\n",count);
+            delay(500);
+            cleardevice();
+            drawBoard();
+            killMoveSelector();
+            move = true;
+        }
+        if(move) return;
+    }
+    //return;
+    killMoveSelector();
+    generalMoveSelector();
+
+    queue<int> thrPcs = threatenedPieces(PLAYER_YELLOW);
+    while(!thrPcs.empty())
+    {
+        genMoves = availableGenMoves(yellow_pcs[thrPcs.front()]);
+        while(!genMoves.empty())
+        {
+            delay(1000);
+            printf("\n\n%d %d\n\n",genMoves.front().first,genMoves.front().second);
+            if(!isMoveSafe(thrPcs.front(),genMoves.front(),PLAYER_YELLOW))
+            {
+                printf("__aichi");
+                genMoves.pop();
+                continue;
+            }
+            printf("%d %d",genMoves.front().first,genMoves.front().second);
+            yellow_pcs[thrPcs.front()] = genMoves.front();
+            cleardevice();
+            drawBoard();
+            genMoves.pop();
+            move = true;
+            break;
+        }
+        thrPcs.pop();
+        if(move) return;
+    }
+
+    for(int i = 15 ; i >= 0 ; i--)
+    {
+        genMoves = availableGenMoves(yellow_pcs[i]);
+        while(!genMoves.empty())
+        {
+            delay(500);
+            printf("\n\n%d %d\n\n",genMoves.front().first,genMoves.front().second);
+            if(!isMoveSafe(i,genMoves.front(),PLAYER_YELLOW))
+            {
+                printf("__aichi");
+                genMoves.pop();
+                continue;
+            }
+            printf("%d %d",genMoves.front().first,genMoves.front().second);
+            yellow_pcs[i] = genMoves.front();
+            cleardevice();
+            drawBoard();
+            genMoves.pop();
+            move = true;
+            break;
+        }
+        if(move) return;
+    }
+
+
+    while(move==false)
+    {
+        int t = rand();
+        int i = (t*456463)%16;
+        generalMoveSelector();
+        killMoveSelector();
+        genMoves = availableGenMoves(yellow_pcs[i]);
+        while(!genMoves.empty())
+        {
+            delay(500);
+            //if(!isMoveSafe(i,genMoves.front(),PLAYER_WHITE)) {printf("__aichi");genMoves.pop();continue;}
+            yellow_pcs[i] = genMoves.front();
+            cleardevice();
+            drawBoard();
+            genMoves.pop();
+            move = true;
+            break;
+        }
+    }
+
+
+    return;
+}
+
+int Finished(){
+    int yc = 0, wc = 0;
+    int ans = 0;
+    for(int i = 0 ; i < 16 ; i++){
+        if(yellow_pcs[i]==make_pair(0,0)) yc++;
+        if(white_pcs[i]==make_pair(0,0)) wc++;
+    }
+    ans = (max(yc,wc));
+    return ans;
+}
+
+void AIvAI(){
+    int whoWin = 0;
+    for(;;){
+        gameAI();
+        whoWin = ifFinished();
+        printf("whowin = %d\n",whoWin);
+        if(whoWin) break;
+        gameAI2();
+        whoWin = ifFinished();
+        printf("whowin = %d\n",whoWin);
+        if(whoWin) break;
+    }
+    menu();
+}
