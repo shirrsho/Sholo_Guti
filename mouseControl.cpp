@@ -148,7 +148,30 @@ void mouseControl()
     while(1)
     {
         whoWin = ifFinished();
-        if(whoWin) break;
+        if(whoWin){
+            initwindow(500,300,"MENU",500,300,false,true);
+            setcolor(WHITE);
+            outtextxy(100,100,"Game Over. PLAYER BLACK has won");
+            outtextxy(100,150,"Return to main menu?");
+            outtextxy(300,200,"Yes");
+
+            while(1)
+            {
+                if(GetAsyncKeyState(VK_LBUTTON))
+                {
+                    GetCursorPos(&cursor);
+                    int x=cursor.x;
+                    int y=cursor.y-25;
+                    printf("%d %d\n",x, y);
+                    //Newlyadded
+                    if(x>=790&&x<=840&&y>=490&&y<=520){
+                        closegraph();
+                        main();
+                    }
+                }
+            }
+
+        }
         delay(100);
 
         GetCursorPos(&cursor);
@@ -221,9 +244,9 @@ void mouseControl()
                         cleardevice();
                         drawBoard();
                         setcolor(BLACK);
-                        circle(white_pcs[i].first,white_pcs[i].second,11);
-                        circle(white_pcs[i].first,white_pcs[i].second,12);
-                        circle(white_pcs[i].first,white_pcs[i].second,13);
+                        circle(white_pcs[i].first,white_pcs[i].second,16);//11);
+                        circle(white_pcs[i].first,white_pcs[i].second,18);//12);
+                        circle(white_pcs[i].first,white_pcs[i].second,20);//13);
                         take = mouseControl2(i,PLAYER_WHITE);
                         //while(!take) take = mouseControl2(i,PLAYER_WHITE);
                         if(take&&AI_MODE) gameAI();
@@ -239,9 +262,9 @@ void mouseControl()
                         cleardevice();
                         drawBoard();
                         setcolor(RED);
-                        circle(yellow_pcs[i].first,yellow_pcs[i].second,11);
-                        circle(yellow_pcs[i].first,yellow_pcs[i].second,12);
-                        circle(yellow_pcs[i].first,yellow_pcs[i].second,13);
+                        circle(yellow_pcs[i].first,yellow_pcs[i].second,16);//11);
+                        circle(yellow_pcs[i].first,yellow_pcs[i].second,18);//12);
+                        circle(yellow_pcs[i].first,yellow_pcs[i].second,20);//13);
                         take = mouseControl2(i,PLAYER_YELLOW);
                         if(take&&AI_MODE) gameAI();
                         else if(take)WhitesMove = true;
@@ -251,6 +274,8 @@ void mouseControl()
         }
     }
     closegraph();
+    //cleardevice();
+    initwindow(500,300,"MENU",0,0,false,true);
     printf("\nPLAYER %d WINS THE GAME\n",whoWin);
     menu();
 }

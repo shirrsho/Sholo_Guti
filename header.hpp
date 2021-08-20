@@ -47,5 +47,5 @@ void gameAI();
 int ifFinished();
 void selectPiece(std::pair<int,int>);
 int whichPiece(std::pair<int,int>);
-
+void AIvAI();
 

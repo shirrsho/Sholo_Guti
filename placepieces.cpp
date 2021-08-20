@@ -22,7 +22,7 @@ void placePieces(int x, int y)
 
     //setcolor(WHITE);
 
-    int radius = 10;
+    int radius = 15;
 
     for(int i = 1 ; i <= radius; i=i++)
     {

@@ -183,7 +183,7 @@ void gameAI()
         genMoves = availableGenMoves(white_pcs[thrPcs.front()]);
         while(!genMoves.empty())
         {
-            delay(500);
+            delay(750);
             printf("\n\n%d %d\n\n",genMoves.front().first,genMoves.front().second);
             if(!isMoveSafe(thrPcs.front(),genMoves.front(),PLAYER_WHITE))
             {
@@ -208,7 +208,7 @@ void gameAI()
         genMoves = availableGenMoves(white_pcs[i]);
         while(!genMoves.empty())
         {
-            delay(500);
+            delay(750);
             printf("\n\n%d %d\n\n",genMoves.front().first,genMoves.front().second);
             if(!isMoveSafe(i,genMoves.front(),PLAYER_WHITE))
             {
@@ -296,7 +296,7 @@ void gameAI2()
         genMoves = availableGenMoves(yellow_pcs[thrPcs.front()]);
         while(!genMoves.empty())
         {
-            delay(1000);
+            delay(750);
             printf("\n\n%d %d\n\n",genMoves.front().first,genMoves.front().second);
             if(!isMoveSafe(thrPcs.front(),genMoves.front(),PLAYER_YELLOW))
             {
@@ -321,7 +321,7 @@ void gameAI2()
         genMoves = availableGenMoves(yellow_pcs[i]);
         while(!genMoves.empty())
         {
-            delay(500);
+            delay(750);
             printf("\n\n%d %d\n\n",genMoves.front().first,genMoves.front().second);
             if(!isMoveSafe(i,genMoves.front(),PLAYER_YELLOW))
             {
@@ -377,16 +377,60 @@ int Finished(){
 }
 
 void AIvAI(){
+    POINT cursor;
     int whoWin = 0;
     for(;;){
         gameAI();
         whoWin = ifFinished();
         printf("whowin = %d\n",whoWin);
         if(whoWin) break;
+        if(GetAsyncKeyState(VK_LBUTTON))
+        {
+            GetCursorPos(&cursor);
+            int x=cursor.x;
+            int y=cursor.y-25;
+            printf("%d %d\n",x, y);
+            //Newlyadded
+            if(cursor.x>=1090&&cursor.x<=1250&&cursor.y>=800&&cursor.y<=950){
+                main();
+            }
+        }
         gameAI2();
         whoWin = ifFinished();
         printf("whowin = %d\n",whoWin);
         if(whoWin) break;
+        if(GetAsyncKeyState(VK_LBUTTON))
+        {
+            GetCursorPos(&cursor);
+            int x=cursor.x;
+            int y=cursor.y-25;
+            printf("%d %d\n",x, y);
+            //Newlyadded
+            if(cursor.x>=1090&&cursor.x<=1250&&cursor.y>=800&&cursor.y<=950){
+                main();
+            }
+        }
+    }
+    initwindow(500,300,"MENU",500,300,false,true);
+    setcolor(WHITE);
+    outtextxy(100,100,"Game Over. PLAYER BLACK has won");
+    outtextxy(100,150,"Return to main menu?");
+    outtextxy(300,200,"Yes");
+
+    while(1)
+    {
+        if(GetAsyncKeyState(VK_LBUTTON))
+        {
+            GetCursorPos(&cursor);
+            int x=cursor.x;
+            int y=cursor.y-25;
+            printf("%d %d\n",x, y);
+            //Newlyadded
+            if(x>=790&&x<=840&&y>=490&&y<=520){
+                closegraph();
+                main();
+            }
+        }
     }
     menu();
 }
