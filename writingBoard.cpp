@@ -74,18 +74,24 @@ void initializeGeneralMoves()
     int x,y, whoWin = 0;
     FILE* fp = fopen("general_moves.txt","a");
     fprintf(fp,"\n");
+
+
     while(1)
     {
         whoWin = 0;
         delay(100);
+
+
         if(GetAsyncKeyState(VK_LBUTTON))
         {
             GetCursorPos(&cursor);
             x=cursor.x;
             y=cursor.y-25;
 
+
             for(int i = 0 ; i < 37 ; i++)
             {
+
                 if(((x>board[i].coord.first-10)&&(x<board[i].coord.first+10))&&
                         ((y>board[i].coord.second-10)&&(y<board[i].coord.second+10)))
                 {
@@ -96,6 +102,8 @@ void initializeGeneralMoves()
                     whoWin = 1;
                 }
             }
+
+
             if(whoWin==0)
             {
                 fclose(fp);
@@ -113,12 +121,16 @@ void initializeKillMoves()
 
     POINT cursor;
     int x,y, whoWin = 0;
+
     FILE* fp = fopen("kill_moves.txt","a");
     fprintf(fp,"\n");
+
+
     while(1)
     {
         whoWin = 0;
         delay(100);
+
         if(GetAsyncKeyState(VK_LBUTTON))
         {
             GetCursorPos(&cursor);
@@ -137,6 +149,8 @@ void initializeKillMoves()
                     whoWin = 1;
                 }
             }
+
+
             if(whoWin==0)
             {
                 fclose(fp);

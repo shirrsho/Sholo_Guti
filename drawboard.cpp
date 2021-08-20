@@ -45,12 +45,14 @@ void drawBoard()
         outtextxy(1100,600,"PlAYER 1 RED");
         outtextxy(1100,800,"END GAME");
     }
+
     else
     {
         outtextxy(1100,150,"COMPUTER BLACK");
         outtextxy(1100,600,"PLAYER RED");
         outtextxy(1100,800,"END GAME");
     }
+
 
     setcolor(BLUE);
 
@@ -71,6 +73,7 @@ void drawBoard()
          BOX_STARTING+BOX_LENGTH,SPACE_VERTICAL+TRIANGLE_HEIGHT+BOX_LENGTH);
     line(BOX_ENDING,SPACE_VERTICAL+TRIANGLE_HEIGHT,BOX_ENDING,SPACE_VERTICAL+TRIANGLE_HEIGHT+BOX_LENGTH);
 
+
     //grid
     line(BOX_STARTING,SPACE_VERTICAL+TRIANGLE_HEIGHT+PLACE_WIDTH,BOX_ENDING,SPACE_VERTICAL+TRIANGLE_HEIGHT+PLACE_WIDTH);
     line(BOX_STARTING,SPACE_VERTICAL+TRIANGLE_HEIGHT+2*PLACE_WIDTH,BOX_ENDING,SPACE_VERTICAL+TRIANGLE_HEIGHT+2*PLACE_WIDTH);
@@ -79,6 +82,7 @@ void drawBoard()
     line(BOX_STARTING+PLACE_WIDTH,SPACE_VERTICAL+TRIANGLE_HEIGHT,BOX_STARTING+PLACE_WIDTH,SPACE_VERTICAL+BOX_LENGTH+TRIANGLE_HEIGHT);
     line(BOX_STARTING+2*PLACE_WIDTH,SPACE_VERTICAL+TRIANGLE_HEIGHT,BOX_STARTING+2*PLACE_WIDTH,SPACE_VERTICAL+BOX_LENGTH+TRIANGLE_HEIGHT);
     line(BOX_STARTING+3*PLACE_WIDTH,SPACE_VERTICAL+TRIANGLE_HEIGHT,BOX_STARTING+3*PLACE_WIDTH,SPACE_VERTICAL+BOX_LENGTH+TRIANGLE_HEIGHT);
+
 
     //diagonals
     line(BOX_STARTING,SPACE_VERTICAL+TRIANGLE_HEIGHT,BOX_ENDING,SPACE_VERTICAL+TRIANGLE_HEIGHT+BOX_LENGTH);
@@ -105,6 +109,8 @@ void drawBoard()
 
 
 
+
+
     // Placing the pieces
 
     for(int i = 0 ; i < 16 ; i++)
@@ -112,12 +118,15 @@ void drawBoard()
         //printf("%d %d\n",white_pcs[i].first,white_pcs[i].second);
         setcolor(BLACK);
         placePieces(white_pcs[i].first,white_pcs[i].second);
+
         setcolor(RED);
         placePieces(yellow_pcs[i].first,yellow_pcs[i].second);
     }
 
 
+
     setcolor(BLUE);
+
     for(int i = 0 ; i < 37 ; i++)
     {
         circle(board[i].coord.first,board[i].coord.second,5);

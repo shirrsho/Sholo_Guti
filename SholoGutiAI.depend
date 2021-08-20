@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1629486347 source:c:\users\asus\desktop\litecpp\shologutiai\main.cpp
+1629488606 source:c:\users\asus\desktop\litecpp\shologutiai\main.cpp
 	<stdio.h>
 	<graphics.h>
 	"header.hpp"
@@ -10,7 +10,7 @@
 
 1581315002 c:\users\asus\desktop\litecpp\shologutiai\header.h
 
-1629314840 source:c:\users\asus\desktop\litecpp\shologutiai\drawboard.cpp
+1629490350 source:c:\users\asus\desktop\litecpp\shologutiai\drawboard.cpp
 	<stdio.h>
 	<graphics.h>
 	<iostream>
@@ -18,7 +18,7 @@
 	<list>
 	<queue>
 
-1629403310 source:c:\users\asus\desktop\litecpp\shologutiai\placepieces.cpp
+1629490350 source:c:\users\asus\desktop\litecpp\shologutiai\placepieces.cpp
 	<graphics.h>
 	"header.hpp"
 	<iostream>
@@ -33,7 +33,7 @@
 1629402332 c:\users\asus\desktop\litecpp\shologutiai\header.hpp
 	<bits/stdc++.h>
 
-1603254476 source:c:\users\asus\desktop\litecpp\shologutiai\initializepieces.cpp
+1629490350 source:c:\users\asus\desktop\litecpp\shologutiai\initializepieces.cpp
 	<graphics.h>
 	"header.hpp"
 	<utility>
@@ -42,7 +42,7 @@
 	<list>
 	<queue>
 
-1603254477 source:c:\users\asus\desktop\litecpp\shologutiai\move_piece.cpp
+1629490350 source:c:\users\asus\desktop\litecpp\shologutiai\move_piece.cpp
 	<stdio.h>
 	<graphics.h>
 	<iostream>
@@ -51,7 +51,7 @@
 	<math.h>
 	<queue>
 
-1629487793 source:c:\users\asus\desktop\litecpp\shologutiai\mousecontrol.cpp
+1629490350 source:c:\users\asus\desktop\litecpp\shologutiai\mousecontrol.cpp
 	<stdio.h>
 	<graphics.h>
 	<iostream>
@@ -59,7 +59,7 @@
 	<queue>
 	<stdlib.h>
 
-1629481670 source:c:\users\asus\desktop\litecpp\shologutiai\menu.cpp
+1629490350 source:c:\users\asus\desktop\litecpp\shologutiai\menu.cpp
 	<stdio.h>
 	<graphics.h>
 	"header.hpp"
@@ -68,7 +68,7 @@
 	<conio.h>
 	<stdlib.h>
 
-1603254477 source:c:\users\asus\desktop\litecpp\shologutiai\writingboard.cpp
+1629490350 source:c:\users\asus\desktop\litecpp\shologutiai\writingboard.cpp
 	<stdio.h>
 	<graphics.h>
 	<iostream>
@@ -76,7 +76,7 @@
 	<queue>
 	<stdlib.h>
 
-1603254477 source:c:\users\asus\desktop\litecpp\shologutiai\readingboard.cpp
+1629490350 source:c:\users\asus\desktop\litecpp\shologutiai\readingboard.cpp
 	<graphics.h>
 	"header.h"
 	<utility>
@@ -85,7 +85,7 @@
 	<list>
 	<queue>
 
-1629487707 source:c:\users\asus\desktop\litecpp\shologutiai\gameai.cpp
+1629490350 source:c:\users\asus\desktop\litecpp\shologutiai\gameai.cpp
 	<stdio.h>
 	<graphics.h>
 	<iostream>
@@ -93,7 +93,7 @@
 	<queue>
 	<stdlib.h>
 
-1603254476 source:c:\users\asus\desktop\litecpp\shologutiai\killing.cpp
+1629490336 source:c:\users\asus\desktop\litecpp\shologutiai\killing.cpp
 	<stdio.h>
 	<graphics.h>
 	<iostream>

@@ -19,7 +19,9 @@ extern struct Board
     pair<int,int> coord;
     queue< pair<int,int> > neighs;
     queue< pair<int,int> > lines;
+
 } board[37];
+
 
 extern bool TWO_PLAYER_MODE;
 
@@ -44,35 +46,48 @@ bool generalMove(int from, int to, int whichPlayer)
 
     if(whichPlayer==PLAYER_WHITE)
     {
+
         //if(calculateDistance(white_pcs[from],board[to].coord)>TRIANGLE_BASE/2||white_pcs[from]==board[to].coord) return false;
         while(!board[to].neighs.empty())
         {
+
             if(board[to].neighs.front() == white_pcs[from])
             {
+
                 //if(board[to].neighs.front().second ==)
                 white_pcs[from]=board[to].coord;
                 generalMoveSelector();
                 return true;
+
             }
+
             board[to].neighs.pop();
+
         }
+
         generalMoveSelector();
         return false;
     }
+
     else
     {
         //if(calculateDistance(yellow_pcs[from],board[to].coord)>TRIANGLE_BASE/2||yellow_pcs[from]==board[to].coord) return false;
+
         while(!board[to].neighs.empty())
         {
+
             if(board[to].neighs.front() == yellow_pcs[from])
             {
                 //if(board[to].neighs.front().second ==  yellow_pcs[from].second)
                 yellow_pcs[from]=board[to].coord;
                 generalMoveSelector();
                 return true;
+
             }
+
             board[to].neighs.pop();
         }
+
         generalMoveSelector();
         return false;
     }
@@ -85,13 +100,16 @@ bool generalMove(int from, int to, int whichPlayer)
 
 bool pieceAvailable(pair<int,int>here)
 {
+
     for(int i = 0 ; i < 16 ; i++)
     {
         if(white_pcs[i] == here)
             return true;
+
         if(yellow_pcs[i] == here)
             return true;
     }
+
     return false;
 }
 
@@ -116,7 +134,9 @@ bool move_piece(int from,int to,int whichPlayer)
     if(take) return take;
 
     take = killMove(from,to,whichPlayer);
+
     killMoveSelector();
+
     if(TWO_PLAYER_MODE&&take)
     {
         dontChange = true;
@@ -124,21 +144,5 @@ bool move_piece(int from,int to,int whichPlayer)
     }
 
     return take;
-
-//    double theDistance;
-//
-//    if(whichPlayer==PLAYER_WHITE){
-//        theDistance = calculateDistance(white_pcs[from],board[to].coord);
-//    }
-//    else{
-//        theDistance = calculateDistance(yellow_pcs[from],board[to].coord);
-//    }
-//
-//    if(theDistance > TRIANGLE_BASE/2) {
-//        take = killMove(from,to,whichPlayer); killMoveSelector(); printf("killll");
-//    }
-//    else {take = generalMove(from,to,whichPlayer);}
-//
-//    return take;
 
 }

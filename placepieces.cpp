@@ -15,12 +15,12 @@ extern struct Board
     queue< pair<int,int> > lines;
 } board[37];
 
+
 // Drawing the pieces
 
 void placePieces(int x, int y)
 {
 
-    //setcolor(WHITE);
 
     int radius = 15;
 
@@ -31,12 +31,16 @@ void placePieces(int x, int y)
 
 }
 
+
+
 int whichPiece(pair<int,int>x)
 {
+
     for(int i = 0; i<16 ; i++)
     {
         if(x==white_pcs[i]) return PLAYER_WHITE;
         if(x==yellow_pcs[i]) return PLAYER_YELLOW;
     }
+
     return 0;
 }

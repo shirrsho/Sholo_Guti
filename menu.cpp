@@ -135,6 +135,7 @@ void menu()
         outtextxy(600,200,"Tough");
         selected = -1;
         turn = 45;
+
         //
         while(1)
         {
@@ -185,6 +186,7 @@ void menu()
 
         }
         //
+
         setbkcolor(WHITE);
         AI_MODE = true;
         initializePieces();
