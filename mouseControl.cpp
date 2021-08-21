@@ -25,6 +25,33 @@ extern bool TWO_PLAYER_MODE;
 extern bool AI_MODE;
 
 
+int score(int who)
+{
+    int sc = 0;
+
+    if(who==PLAYER_WHITE)
+    {
+
+        for(int i = 0 ; i < 16 ; i++)
+        {
+            if(white_pcs[i]!=make_pair(0,0)) sc++;
+        }
+
+    }
+
+    else{
+
+        for(int i = 0 ; i < 16 ; i++)
+        {
+            if(yellow_pcs[i]!=make_pair(0,0)) sc++;
+        }
+
+    }
+
+    return sc;
+}
+
+
 // End indicating function
 
 int ifFinished()
@@ -53,12 +80,15 @@ int ifFinished()
 
             if(take==PLAYER_WHITE) return 0;
 
-            else return PLAYER_YELLOW;
+            else{
+                leaderboardSave(PLAYER_YELLOW,score(PLAYER_YELLOW));
+                return PLAYER_YELLOW;
+            }
 
         }
 
     }
-
+    leaderboardSave(PLAYER_WHITE,score(PLAYER_WHITE));
     return PLAYER_WHITE;
 }
 

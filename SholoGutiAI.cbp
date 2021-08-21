@@ -39,6 +39,7 @@
 		<Unit filename="header.hpp" />
 		<Unit filename="initializePieces.cpp" />
 		<Unit filename="killing.cpp" />
+		<Unit filename="leaderboard.cpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="menu.cpp" />
 		<Unit filename="mouseControl.cpp" />

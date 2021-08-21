@@ -29,6 +29,7 @@ void menu()
     TWO_PLAYER_MODE = AI_MODE = false;
     //Game Window
     initwindow(1530,850,"MENU",0,0,false,true);
+
     cleardevice();
 
     //Menu Items
@@ -37,6 +38,14 @@ void menu()
     outtextxy(600,150,"Two Player");
     outtextxy(600,200,"AI Mode");
     outtextxy(600,250,"AI vs AI");
+    outtextxy(600,450,"Leaderboard");
+
+    rectangle(550,80,950,600);
+    rectangle(549,79,949,599);
+    rectangle(548,78,948,598);
+
+    //leaderboardView();
+    //getch();
 
 
     int turn = 45,X,Y;
@@ -56,6 +65,7 @@ void menu()
             if(turn == 0) selected = 1;
             else if(turn == 1) selected = 2;
             else if(turn == 2) selected = 3;
+            else if(turn == 3) selected = 4;
             else continue;
             break;
         }
@@ -66,9 +76,13 @@ void menu()
             settextstyle(10,0,5);
             setcolor(LIGHTRED);
             outtextxy(600,150,"Two Player");
+            rectangle(550,80,950,600);
+            rectangle(549,79,949,599);
+            rectangle(548,78,948,598);
             setcolor(WHITE);
             outtextxy(600,200,"AI Mode");
             outtextxy(600,250,"AI vs AI");
+            outtextxy(600,450,"Leaderboard");
             turn=0;
 
         }
@@ -81,8 +95,12 @@ void menu()
             outtextxy(600,150,"Two Player");
             setcolor(LIGHTRED);
             outtextxy(600,200,"AI Mode");
+            rectangle(550,80,950,600);
+            rectangle(549,79,949,599);
+            rectangle(548,78,948,598);
             setcolor(WHITE);
             outtextxy(600,250,"AI vs AI");
+            outtextxy(600,450,"Leaderboard");
             turn=1;
 
         }
@@ -95,20 +113,46 @@ void menu()
             setcolor(WHITE);
             outtextxy(600,150,"Two Player");
             outtextxy(600,200,"AI Mode");
+            outtextxy(600,450,"Leaderboard");
             setcolor(LIGHTRED);
             outtextxy(600,250,"AI vs AI");
+            rectangle(550,80,950,600);
+            rectangle(549,79,949,599);
+            rectangle(548,78,948,598);
             turn=2;
 
         }
 
-        else if(turn<3)
+        else if(cursor.x>=600&&cursor.x<=800&&cursor.y>=475&&cursor.y<=520)
         {
-            turn+=3;
+
+            cleardevice();
             settextstyle(10,0,5);
             setcolor(WHITE);
             outtextxy(600,150,"Two Player");
             outtextxy(600,200,"AI Mode");
             outtextxy(600,250,"AI vs AI");
+            setcolor(LIGHTRED);
+            outtextxy(600,450,"Leaderboard");
+            rectangle(550,80,950,600);
+            rectangle(549,79,949,599);
+            rectangle(548,78,948,598);
+            turn=3;
+
+        }
+
+        else if(turn<4)
+        {
+            turn+=4;
+            settextstyle(10,0,5);
+            setcolor(WHITE);
+            outtextxy(600,150,"Two Player");
+            outtextxy(600,200,"AI Mode");
+            outtextxy(600,250,"AI vs AI");
+            outtextxy(600,450,"Leaderboard");
+            rectangle(550,80,950,600);
+            rectangle(549,79,949,599);
+            rectangle(548,78,948,598);
         }
 
     }
@@ -206,6 +250,18 @@ void menu()
         setbkcolor(WHITE);
         drawBoard();
         AIvAI();
+
+    }
+    else if(selected == 4)
+    {
+        //setbkcolor(WHITE);
+        //AI_MODE = true;
+        //initializePieces();
+        cleardevice();
+        leaderboardView();
+        //setbkcolor(WHITE);
+        //drawBoard();
+        //AIvAI();
 
     }
 }
