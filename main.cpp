@@ -11,7 +11,8 @@ using namespace std;
 int main()
 {
     closegraph();
-
+    
+    //Main menu
     menu();
 
     return 0;
