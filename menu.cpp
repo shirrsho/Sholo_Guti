@@ -10,6 +10,8 @@ using namespace std;
 
 bool TWO_PLAYER_MODE = false;       //Game mode indicator
 bool AI_MODE = false;
+bool AI_AI = false;
+
 
 
 /*
@@ -245,6 +247,7 @@ void menu()
     {
         setbkcolor(WHITE);
         AI_MODE = true;
+        AI_AI = true;
         initializePieces();
         cleardevice();
         setbkcolor(WHITE);

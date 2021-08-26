@@ -66,7 +66,6 @@ void set()
 }
 
 
-
 void initializeGeneralMoves()
 {
 
@@ -115,6 +114,8 @@ void initializeGeneralMoves()
         //menu();
     }
 }
+
+
 
 void initializeKillMoves()
 {

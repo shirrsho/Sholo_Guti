@@ -10,7 +10,7 @@
 
 1581315002 c:\users\asus\desktop\litecpp\shologutiai\header.h
 
-1629490350 source:c:\users\asus\desktop\litecpp\shologutiai\drawboard.cpp
+1629785651 source:c:\users\asus\desktop\litecpp\shologutiai\drawboard.cpp
 	<stdio.h>
 	<graphics.h>
 	<iostream>
@@ -30,7 +30,7 @@
 	<graphics.h>
 	"header.h"
 
-1629563813 c:\users\asus\desktop\litecpp\shologutiai\header.hpp
+1629801725 c:\users\asus\desktop\litecpp\shologutiai\header.hpp
 	<bits/stdc++.h>
 
 1629490350 source:c:\users\asus\desktop\litecpp\shologutiai\initializepieces.cpp
@@ -51,7 +51,7 @@
 	<math.h>
 	<queue>
 
-1629560513 source:c:\users\asus\desktop\litecpp\shologutiai\mousecontrol.cpp
+1629801696 source:c:\users\asus\desktop\litecpp\shologutiai\mousecontrol.cpp
 	<stdio.h>
 	<graphics.h>
 	<iostream>
@@ -59,7 +59,7 @@
 	<queue>
 	<stdlib.h>
 
-1629569223 source:c:\users\asus\desktop\litecpp\shologutiai\menu.cpp
+1629785651 source:c:\users\asus\desktop\litecpp\shologutiai\menu.cpp
 	<stdio.h>
 	<graphics.h>
 	"header.hpp"
@@ -68,7 +68,7 @@
 	<conio.h>
 	<stdlib.h>
 
-1629490350 source:c:\users\asus\desktop\litecpp\shologutiai\writingboard.cpp
+1629609308 source:c:\users\asus\desktop\litecpp\shologutiai\writingboard.cpp
 	<stdio.h>
 	<graphics.h>
 	<iostream>
@@ -85,7 +85,7 @@
 	<list>
 	<queue>
 
-1629490350 source:c:\users\asus\desktop\litecpp\shologutiai\gameai.cpp
+1629801696 source:c:\users\asus\desktop\litecpp\shologutiai\gameai.cpp
 	<stdio.h>
 	<graphics.h>
 	<iostream>
@@ -104,7 +104,7 @@
 1588171463 source:c:\users\asus\desktop\litecpp\shologutiai\header.hpp
 	<bits/stdc++.h>
 
-1629568639 source:c:\users\asus\desktop\litecpp\shologutiai\leaderboard.cpp
+1629786932 source:c:\users\asus\desktop\litecpp\shologutiai\leaderboard.cpp
 	<stdio.h>
 	<graphics.h>
 	"header.hpp"

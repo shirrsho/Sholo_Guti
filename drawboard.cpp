@@ -21,6 +21,7 @@ extern struct Board                   // Board coordinate indicating structure
 
 extern bool TWO_PLAYER_MODE;
 extern bool AI_MODE;
+extern bool AI_AI;
 
 
 
@@ -46,10 +47,17 @@ void drawBoard()
         outtextxy(1100,800,"END GAME");
     }
 
-    else
+    else if(!AI_AI)
     {
         outtextxy(1100,150,"COMPUTER BLACK");
         outtextxy(1100,600,"PLAYER RED");
+        outtextxy(1100,800,"END GAME");
+    }
+
+    else
+    {
+        outtextxy(1100,150,"COMPUTER BLACK");
+        outtextxy(1100,600,"COMPUTER RED");
         outtextxy(1100,800,"END GAME");
     }
 

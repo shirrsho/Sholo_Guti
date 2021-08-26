@@ -20,6 +20,7 @@ extern bool WhitesMove;
 
 extern bool TWO_PLAYER_MODE;
 extern bool AI_MODE;
+extern bool FINAL_MOVE;
 
 
 /*
@@ -197,6 +198,7 @@ void gameAI()
 
     int to = rand();
     to = to%37;
+
     bool move = false;
     int count=0;
 
@@ -212,6 +214,12 @@ void gameAI()
     for(int i = 0 ; i < 16 ; i++)
     {
         killMoveSelector();
+
+        /*
+            - Checking all possible avaibilities to kill a piece
+
+            - Selecting the best one
+        */
 
         if(white_pcs[i] == make_pair(0,0)) continue;
 
@@ -229,6 +237,7 @@ void gameAI()
 
             move = true;
         }
+
 
         if(move) return;
     }
@@ -254,6 +263,7 @@ void gameAI()
             {
                 printf("__aichi");
                 genMoves.pop();
+                //The move is not safe
                 continue;
             }
 
@@ -289,6 +299,10 @@ void gameAI()
             delay(750);
             printf("\n\n%d %d\n\n",genMoves.front().first,genMoves.front().second);
 
+            /*
+                - Find all possible displacement move
+            */
+
             if(!isMoveSafe(i,genMoves.front(),PLAYER_WHITE))
             {
                 printf("__aichi");
@@ -298,12 +312,18 @@ void gameAI()
 
             printf("%d %d",genMoves.front().first,genMoves.front().second);
 
+
+            //Move the piece
+            //Then calculate its
             white_pcs[i] = genMoves.front();
+
 
             cleardevice();
             drawBoard();
+
             genMoves.pop();
             move = true;
+
             break;
         }
 
@@ -566,7 +586,10 @@ void AIvAI(){
     initwindow(500,300,"MENU",500,300,false,true);
 
     setcolor(WHITE);
-    outtextxy(100,100,"Game Over. PLAYER BLACK has won");
+    char a[10];
+    sprintf(a,"%d",score(PLAYER_WHITE));
+    outtextxy(100,100,"Game Over. PLAYER BLACK has won, Score:");
+    outtextxy(100,125,a);
     outtextxy(100,150,"Return to main menu?");
     outtextxy(300,200,"Yes");
 
