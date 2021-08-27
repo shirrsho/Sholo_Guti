@@ -21,6 +21,7 @@ extern bool WhitesMove;
 extern bool TWO_PLAYER_MODE;
 extern bool AI_MODE;
 extern bool FINAL_MOVE;
+extern bool REG_AI;
 
 
 /*
@@ -169,6 +170,8 @@ std::queue<int> threatenedPieces(int whichPlayer)
 
     queue<int> ret;
 
+    if(REG_AI) return ret;
+
     while(!ret.empty())ret.pop();
 
     if(whichPlayer==PLAYER_WHITE)
@@ -215,11 +218,6 @@ void gameAI()
     {
         killMoveSelector();
 
-        /*
-            - Checking all possible avaibilities to kill a piece
-
-            - Selecting the best one
-        */
 
         if(white_pcs[i] == make_pair(0,0)) continue;
 
@@ -227,7 +225,7 @@ void gameAI()
         while(recursiveKill(i,PLAYER_WHITE)||recursiveKill2(i,PLAYER_WHITE))
         {
             count++;
-            printf("\n\n%d\n\n",count);
+
             delay(500);
 
             cleardevice();
@@ -261,9 +259,8 @@ void gameAI()
 
             if(!isMoveSafe(thrPcs.front(),genMoves.front(),PLAYER_WHITE))
             {
-                printf("__aichi");
+                printf("__tyhi");
                 genMoves.pop();
-                //The move is not safe
                 continue;
             }
 

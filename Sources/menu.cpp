@@ -40,11 +40,12 @@ void menu()
     setcolor(WHITE);
     outtextxy(600,150,"Two Player");
     rectangle(590,150,860,190);
-    outtextxy(600,200,"AI Mode");
+    outtextxy(600,200,"vs Machine");
     rectangle(590,200,860,240);
-    outtextxy(600,250,"AI vs AI");
+    outtextxy(600,250,"Machine vs Machine");
     rectangle(590,250,860,290);
     outtextxy(600,450,"Leaderboard");
+    rectangle(590,450,900,490);
     //rectangle(590,150,860,190);
 
     rectangle(550,80,950,600);
@@ -87,9 +88,12 @@ void menu()
             rectangle(549,79,949,599);
             rectangle(548,78,948,598);
             setcolor(WHITE);
-            outtextxy(600,200,"AI Mode");
+            outtextxy(600,200,"vs Machine");
+            rectangle(590,200,860,240);
             outtextxy(600,250,"AI vs AI");
+            rectangle(590,250,860,290);
             outtextxy(600,450,"Leaderboard");
+            rectangle(590,450,900,490);
             turn=0;
 
         }
@@ -102,13 +106,16 @@ void menu()
             outtextxy(600,150,"Two Player");
             rectangle(590,150,860,190);
             setcolor(LIGHTRED);
-            outtextxy(600,200,"AI Mode");
+            outtextxy(600,200,"vs Machine");
+            rectangle(590,200,860,240);
             rectangle(550,80,950,600);
             rectangle(549,79,949,599);
             rectangle(548,78,948,598);
             setcolor(WHITE);
             outtextxy(600,250,"AI vs AI");
+            rectangle(590,250,860,290);
             outtextxy(600,450,"Leaderboard");
+            rectangle(590,450,900,490);
             turn=1;
 
         }
@@ -121,10 +128,13 @@ void menu()
             setcolor(WHITE);
             outtextxy(600,150,"Two Player");
             rectangle(590,150,860,190);
-            outtextxy(600,200,"AI Mode");
+            outtextxy(600,200,"vs Machine");
+            rectangle(590,200,860,240);
             outtextxy(600,450,"Leaderboard");
+            rectangle(590,450,900,490);
             setcolor(LIGHTRED);
             outtextxy(600,250,"AI vs AI");
+            rectangle(590,250,860,290);
             rectangle(550,80,950,600);
             rectangle(549,79,949,599);
             rectangle(548,78,948,598);
@@ -140,10 +150,13 @@ void menu()
             setcolor(WHITE);
             outtextxy(600,150,"Two Player");
             rectangle(590,150,860,190);
-            outtextxy(600,200,"AI Mode");
+            outtextxy(600,200,"vs Machine");
+            rectangle(590,200,860,240);
             outtextxy(600,250,"AI vs AI");
+            rectangle(590,250,860,290);
             setcolor(LIGHTRED);
             outtextxy(600,450,"Leaderboard");
+            rectangle(590,450,900,490);
             rectangle(550,80,950,600);
             rectangle(549,79,949,599);
             rectangle(548,78,948,598);
@@ -158,9 +171,12 @@ void menu()
             setcolor(WHITE);
             outtextxy(600,150,"Two Player");
             rectangle(590,150,860,190);
-            outtextxy(600,200,"AI Mode");
+            outtextxy(600,200,"vs Machine");
+            rectangle(590,200,860,240);
             outtextxy(600,250,"AI vs AI");
+            rectangle(590,250,860,290);
             outtextxy(600,450,"Leaderboard");
+            rectangle(590,450,900,490);
             rectangle(550,80,950,600);
             rectangle(549,79,949,599);
             rectangle(548,78,948,598);
@@ -187,7 +203,12 @@ void menu()
         settextstyle(10,0,5);
         setcolor(WHITE);
         outtextxy(600,150,"Regular");
+        rectangle(590,150,860,190);
         outtextxy(600,200,"Tough");
+        rectangle(590,200,860,240);
+        rectangle(550,80,950,600);
+        rectangle(549,79,949,599);
+        rectangle(548,78,948,598);
         selected = -1;
         turn = 45;
 
@@ -211,8 +232,13 @@ void menu()
                 settextstyle(10,0,5);
                 setcolor(LIGHTRED);
                 outtextxy(600,150,"Regular");
+                rectangle(590,150,860,190);
+                rectangle(550,80,950,600);
+                rectangle(549,79,949,599);
+                rectangle(548,78,948,598);
                 setcolor(WHITE);
                 outtextxy(600,200,"Tough");
+                rectangle(590,200,860,240);
                 turn=0;
 
             }
@@ -223,8 +249,13 @@ void menu()
                 settextstyle(10,0,5);
                 setcolor(WHITE);
                 outtextxy(600,150,"Regular");
+                rectangle(590,150,860,190);
                 setcolor(LIGHTRED);
                 outtextxy(600,200,"Tough");
+                rectangle(590,200,860,240);
+                rectangle(550,80,950,600);
+                rectangle(549,79,949,599);
+                rectangle(548,78,948,598);
                 turn=1;
 
             }
@@ -235,7 +266,12 @@ void menu()
                 settextstyle(10,0,5);
                 setcolor(WHITE);
                 outtextxy(600,150,"Regular");
+                rectangle(590,150,860,190);
                 outtextxy(600,200,"Tough");
+                rectangle(590,200,860,240);
+                rectangle(550,80,950,600);
+                rectangle(549,79,949,599);
+                rectangle(548,78,948,598);
 
             }
 

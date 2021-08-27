@@ -45,6 +45,7 @@ void drawBoard()
         outtextxy(1100,150,"PLAYER 2 BLACK");
         outtextxy(1100,600,"PlAYER 1 RED");
         outtextxy(1100,800,"END GAME");
+        rectangle(1090,800,1250,820);
     }
 
     else if(!AI_AI)
@@ -52,6 +53,7 @@ void drawBoard()
         outtextxy(1100,150,"COMPUTER BLACK");
         outtextxy(1100,600,"PLAYER RED");
         outtextxy(1100,800,"END GAME");
+        rectangle(1090,800,1250,820);
     }
 
     else
@@ -59,6 +61,7 @@ void drawBoard()
         outtextxy(1100,150,"COMPUTER BLACK");
         outtextxy(1100,600,"COMPUTER RED");
         outtextxy(1100,800,"END GAME");
+        rectangle(1090,800,1250,820);
     }
 
 

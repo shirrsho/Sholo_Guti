@@ -50,7 +50,4 @@ int whichPiece(std::pair<int,int>);
 void AIvAI();
 void leaderboardSave(int,int);
 void leaderboardView();
-void stick_the_move(int,int);
-int better_kill(int,int);
-int better_move(int,int);
 int score(int);

@@ -170,22 +170,22 @@ bool recursiveKill(int from, int whichPlayer)
 
         for(int i = 0 ; i < 20 ; i++)
         {
-            //printf("\nggsize..%d\n",board[i].lines.size());
+            printf("\nggsize..%d\n",board[i].lines.size());
 
             while(!board[i].lines.empty())
             {
-                //printf("i>>%d ",i);
+                printf("i>>%d ",i);
 
                 if(yellow_pcs[from] == board[i].lines.front())
                 {
-                    //printf("iniff");
+                    printf("iniff");
                     board[i].lines.pop();
 
                     if(board[i].lines.empty())break;
 
                     for(int j = 0 ; j < 16 ; j++)
                     {
-                        //printf("j>>%d ",j);
+                        printf("j>>%d ",j);
 
                         if(white_pcs[j] == board[i].lines.front())
                         {

@@ -137,7 +137,7 @@ bool mouseControl2(int j, int color)
 
         for(int i = 0 ; i < 37 ; i++)
         {
-            if(((x>board[i].coord.first-10)&&(x<board[i].coord.first+10))&&((y>board[i].coord.second-10)&&(y<board[i].coord.second+10)))
+            if(((x>board[i].coord.first-15)&&(x<board[i].coord.first+15))&&((y>board[i].coord.second-15)&&(y<board[i].coord.second+15)))
             {
 
                 //setcolor(WHITE);circle(board[i].coord.first,board[i].coord.second,11);
@@ -152,7 +152,7 @@ bool mouseControl2(int j, int color)
             y = cursor.y-25;
             for(int i = 0 ; i < 37 ; i++)
             {
-                if(((x>board[i].coord.first-10)&&(x<board[i].coord.first+10))&&((y>board[i].coord.second-10)&&(y<board[i].coord.second+10)))
+                if(((x>board[i].coord.first-15)&&(x<board[i].coord.first+15))&&((y>board[i].coord.second-15)&&(y<board[i].coord.second+15)))
                 {
                     if(pieceAvailable(board[i].coord)) break;
 
@@ -237,7 +237,7 @@ void mouseControl()
 
         for(int i = 0 ; i < 37 ; i++)
         {
-            if(((x>board[i].coord.first-10)&&(x<board[i].coord.first+10))&&((y>board[i].coord.second-10)&&(y<board[i].coord.second+10)))
+            if(((x>board[i].coord.first-15)&&(x<board[i].coord.first+15))&&((y>board[i].coord.second-15)&&(y<board[i].coord.second+15)))
             {
 
                 //setcolor(WHITE);circle(board[i].coord.first,board[i].coord.second,11);
@@ -260,8 +260,8 @@ void mouseControl()
                 for(int i = 0 ; i < 16 ; i++)
                 {
 
-                    if(((x>white_pcs[i].first-10)&&(x<white_pcs[i].first+10))&&
-                            ((y>white_pcs[i].second-10)&&(y<white_pcs[i].second+10)))
+                    if(((x>white_pcs[i].first-15)&&(x<white_pcs[i].first+15))&&
+                            ((y>white_pcs[i].second-15)&&(y<white_pcs[i].second+15)))
                     {
 
                         cleardevice();
@@ -286,8 +286,8 @@ void mouseControl()
 
                 for(int i = 0 ; i < 16 ; i++)
                 {
-                    if(((x>yellow_pcs[i].first-10)&&(x<yellow_pcs[i].first+10))&&
-                            ((y>yellow_pcs[i].second-10)&&(y<yellow_pcs[i].second+10)))
+                    if(((x>yellow_pcs[i].first-15)&&(x<yellow_pcs[i].first+15))&&
+                            ((y>yellow_pcs[i].second-15)&&(y<yellow_pcs[i].second+15)))
                     {
 
                         cleardevice();
@@ -314,8 +314,8 @@ void mouseControl()
             if(WhitesMove)
                 for(int i = 0 ; i < 16 ; i++)
                 {
-                    if(((x>white_pcs[i].first-10)&&(x<white_pcs[i].first+10))&&
-                            ((y>white_pcs[i].second-10)&&(y<white_pcs[i].second+10)))
+                    if(((x>white_pcs[i].first-15)&&(x<white_pcs[i].first+15))&&
+                            ((y>white_pcs[i].second-15)&&(y<white_pcs[i].second+15)))
                     {
 
                         cleardevice();
@@ -339,8 +339,8 @@ void mouseControl()
             else
                 for(int i = 0 ; i < 16 ; i++)
                 {
-                    if(((x>yellow_pcs[i].first-10)&&(x<yellow_pcs[i].first+10))&&
-                            ((y>yellow_pcs[i].second-10)&&(y<yellow_pcs[i].second+10)))
+                    if(((x>yellow_pcs[i].first-15)&&(x<yellow_pcs[i].first+15))&&
+                            ((y>yellow_pcs[i].second-15)&&(y<yellow_pcs[i].second+15)))
                     {
 
                         cleardevice();
