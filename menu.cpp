@@ -11,6 +11,7 @@ using namespace std;
 bool TWO_PLAYER_MODE = false;       //Game mode indicator
 bool AI_MODE = false;
 bool AI_AI = false;
+bool REG_AI = false;
 
 
 
@@ -25,11 +26,10 @@ bool AI_AI = false;
 */
 
 
-
 void menu()
 {
 
-    TWO_PLAYER_MODE = AI_MODE = false;
+    AI_AI = TWO_PLAYER_MODE = AI_MODE = false;
     //Game Window
     initwindow(1530,850,"MENU",0,0,false,true);
 
@@ -39,14 +39,17 @@ void menu()
     settextstyle(10,0,5);
     setcolor(WHITE);
     outtextxy(600,150,"Two Player");
+    rectangle(590,150,860,190);
     outtextxy(600,200,"AI Mode");
+    rectangle(590,200,860,240);
     outtextxy(600,250,"AI vs AI");
+    rectangle(590,250,860,290);
     outtextxy(600,450,"Leaderboard");
+    //rectangle(590,150,860,190);
 
     rectangle(550,80,950,600);
     rectangle(549,79,949,599);
     rectangle(548,78,948,598);
-
     //leaderboardView();
     //getch();
 
@@ -79,6 +82,7 @@ void menu()
             settextstyle(10,0,5);
             setcolor(LIGHTRED);
             outtextxy(600,150,"Two Player");
+            rectangle(590,150,860,190);
             rectangle(550,80,950,600);
             rectangle(549,79,949,599);
             rectangle(548,78,948,598);
@@ -96,6 +100,7 @@ void menu()
             settextstyle(10,0,5);
             setcolor(WHITE);
             outtextxy(600,150,"Two Player");
+            rectangle(590,150,860,190);
             setcolor(LIGHTRED);
             outtextxy(600,200,"AI Mode");
             rectangle(550,80,950,600);
@@ -115,6 +120,7 @@ void menu()
             settextstyle(10,0,5);
             setcolor(WHITE);
             outtextxy(600,150,"Two Player");
+            rectangle(590,150,860,190);
             outtextxy(600,200,"AI Mode");
             outtextxy(600,450,"Leaderboard");
             setcolor(LIGHTRED);
@@ -133,6 +139,7 @@ void menu()
             settextstyle(10,0,5);
             setcolor(WHITE);
             outtextxy(600,150,"Two Player");
+            rectangle(590,150,860,190);
             outtextxy(600,200,"AI Mode");
             outtextxy(600,250,"AI vs AI");
             setcolor(LIGHTRED);
@@ -150,6 +157,7 @@ void menu()
             settextstyle(10,0,5);
             setcolor(WHITE);
             outtextxy(600,150,"Two Player");
+            rectangle(590,150,860,190);
             outtextxy(600,200,"AI Mode");
             outtextxy(600,250,"AI vs AI");
             outtextxy(600,450,"Leaderboard");
@@ -235,6 +243,9 @@ void menu()
         //
 
         setbkcolor(WHITE);
+        REG_AI = false;
+        AI_AI = false;
+        if(selected == 1) REG_AI = true;
         AI_MODE = true;
         initializePieces();
         cleardevice();
