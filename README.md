@@ -34,8 +34,7 @@ It is a mode where two players will make their moves to get an advancement over 
  **Machine:**
 The program is separated into two parts here. One is Player vs Machine and the other is Machine vs Machine. 
 Two AI has been developed here. According to their effectiveness, one is labeled with “Regular AI” and the other one is “Tough AI”.
-In the Player vs Machine mode, a human will be able to play against the AI. And in the Machine vs Machine mode, the Tough AI will play against the Regular AI. Therefore, the Tough AI should win each game with some limitations, because the Regular AI is not a complete naive 
-Figure 2: Player vs AI mode in the game machine. Again, the game rules will be followed by the machine. No AI can make an invalid move. Further details about the AIs and how they work will be discussed in the appropriate section.
+In the Player vs Machine mode, a human will be able to play against the AI. And in the Machine vs Machine mode, the Tough AI will play against the Regular AI. Therefore, the Tough AI should win each game with some limitations, because the Regular AI is not a complete naive machine. Again, the game rules will be followed by the machine. No AI can make an invalid move. Further details about the AIs and how they work will be discussed in the appropriate section.
 
 
 
@@ -54,7 +53,6 @@ After clicking on the Two Players’ mode screen will be flooded with white colo
 The user will have to click on a piece to move it. By clicking on a piece it will turn big indicating it has been selected. Then the user will click on his desired destination for the selected piece. This will complete a move for the user. The move can be of two kinds: Killing Move and Displacement Move. In the killing move, a piece will have to jump over another player’s piece to the place next to it. This will cause the jumped-over piece to be killed or vanished, the opponent will lose that piece. The beauty of the kill move is it will trigger a recursive killing function. By the recursive killing, one will be able to kill any number of pieces possible by hopping over them in a single move.
 And by killing the opponent’s pieces the winner will be chosen. The player who will kill the opponent’s all pieces in the first place will be declared as the winner.
 Then a window regarding the winner’s name and score will pop up containing a button that takes the user to the main menu screen by a mouse-click.
-				          Figure 7: Game ending pop-up option
  
  *AI mode (vs Machine):*
  
