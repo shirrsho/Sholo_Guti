@@ -213,6 +213,8 @@ void gameAI()
 
     generalMoveSelector();
 
+    queue<int> thrPcs = threatenedPieces(PLAYER_BLACK);
+
 
     for(int i = 0 ; i < 16 ; i++)
     {
@@ -244,8 +246,6 @@ void gameAI()
     killMoveSelector();
 
     generalMoveSelector();
-
-    queue<int> thrPcs = threatenedPieces(PLAYER_BLACK);
 
 
     while(!thrPcs.empty())
@@ -532,6 +532,7 @@ void AIvAI(){
     int whoWin = 0;
 
     for(;;){
+
         gameAI();
         whoWin = ifFinished();
 
