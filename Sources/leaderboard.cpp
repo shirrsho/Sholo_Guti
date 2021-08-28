@@ -5,6 +5,7 @@
 #include<iostream>
 #include<conio.h>
 #include<stdlib.h>
+#include<vector>
 
 using namespace std;
 
@@ -12,14 +13,13 @@ void leaderboardSave(int who, int score)
 {
     FILE* fp = fopen("leaderboard.txt","a+");
 
-    if(who == PLAYER_WHITE){
+    if(who == PLAYER_BLACK){
         fprintf(fp,"AI       %d\n",score);
     }
 
     else{
         fprintf(fp,"PL       %d\n",score);
     }
-    fclose(fp);
 }
 
 

@@ -42,9 +42,9 @@ void menu()
     rectangle(590,150,860,190);
     outtextxy(600,200,"vs Machine");
     rectangle(590,200,860,240);
-    outtextxy(600,250,"Machine vs Machine");
+    outtextxy(600,250,"AI vs AI");
     rectangle(590,250,860,290);
-    outtextxy(600,450,"Leaderboard");
+    outtextxy(600,450,"Scoreboard");
     rectangle(590,450,900,490);
     //rectangle(590,150,860,190);
 
@@ -92,7 +92,7 @@ void menu()
             rectangle(590,200,860,240);
             outtextxy(600,250,"AI vs AI");
             rectangle(590,250,860,290);
-            outtextxy(600,450,"Leaderboard");
+            outtextxy(600,450,"Scoreboard");
             rectangle(590,450,900,490);
             turn=0;
 
@@ -114,7 +114,7 @@ void menu()
             setcolor(WHITE);
             outtextxy(600,250,"AI vs AI");
             rectangle(590,250,860,290);
-            outtextxy(600,450,"Leaderboard");
+            outtextxy(600,450,"Scoreboard");
             rectangle(590,450,900,490);
             turn=1;
 
@@ -130,7 +130,7 @@ void menu()
             rectangle(590,150,860,190);
             outtextxy(600,200,"vs Machine");
             rectangle(590,200,860,240);
-            outtextxy(600,450,"Leaderboard");
+            outtextxy(600,450,"Scoreboard");
             rectangle(590,450,900,490);
             setcolor(LIGHTRED);
             outtextxy(600,250,"AI vs AI");
@@ -155,7 +155,7 @@ void menu()
             outtextxy(600,250,"AI vs AI");
             rectangle(590,250,860,290);
             setcolor(LIGHTRED);
-            outtextxy(600,450,"Leaderboard");
+            outtextxy(600,450,"Scoreboard");
             rectangle(590,450,900,490);
             rectangle(550,80,950,600);
             rectangle(549,79,949,599);
@@ -175,7 +175,7 @@ void menu()
             rectangle(590,200,860,240);
             outtextxy(600,250,"AI vs AI");
             rectangle(590,250,860,290);
-            outtextxy(600,450,"Leaderboard");
+            outtextxy(600,450,"Scoreboard");
             rectangle(590,450,900,490);
             rectangle(550,80,950,600);
             rectangle(549,79,949,599);

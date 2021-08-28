@@ -10,8 +10,8 @@ using namespace std;
 
 bool dontChange = false;                                                       // Move changer
 
-extern pair<int,int> yellow_pcs[16];
-extern pair<int,int> white_pcs[16];
+extern pair<int,int> red_pcs[16];
+extern pair<int,int> black_pcs[16];
 
 
 extern struct Board
@@ -44,18 +44,18 @@ bool generalMove(int from, int to, int whichPlayer)
 
 
 
-    if(whichPlayer==PLAYER_WHITE)
+    if(whichPlayer==PLAYER_BLACK)
     {
 
-        //if(calculateDistance(white_pcs[from],board[to].coord)>TRIANGLE_BASE/2||white_pcs[from]==board[to].coord) return false;
+        //if(calculateDistance(black_pcs[from],board[to].coord)>TRIANGLE_BASE/2||black_pcs[from]==board[to].coord) return false;
         while(!board[to].neighs.empty())
         {
 
-            if(board[to].neighs.front() == white_pcs[from])
+            if(board[to].neighs.front() == black_pcs[from])
             {
 
                 //if(board[to].neighs.front().second ==)
-                white_pcs[from]=board[to].coord;
+                black_pcs[from]=board[to].coord;
                 generalMoveSelector();
                 return true;
 
@@ -71,15 +71,15 @@ bool generalMove(int from, int to, int whichPlayer)
 
     else
     {
-        //if(calculateDistance(yellow_pcs[from],board[to].coord)>TRIANGLE_BASE/2||yellow_pcs[from]==board[to].coord) return false;
+        //if(calculateDistance(red_pcs[from],board[to].coord)>TRIANGLE_BASE/2||red_pcs[from]==board[to].coord) return false;
 
         while(!board[to].neighs.empty())
         {
 
-            if(board[to].neighs.front() == yellow_pcs[from])
+            if(board[to].neighs.front() == red_pcs[from])
             {
-                //if(board[to].neighs.front().second ==  yellow_pcs[from].second)
-                yellow_pcs[from]=board[to].coord;
+                //if(board[to].neighs.front().second ==  red_pcs[from].second)
+                red_pcs[from]=board[to].coord;
                 generalMoveSelector();
                 return true;
 
@@ -103,10 +103,10 @@ bool pieceAvailable(pair<int,int>here)
 
     for(int i = 0 ; i < 16 ; i++)
     {
-        if(white_pcs[i] == here)
+        if(black_pcs[i] == here)
             return true;
 
-        if(yellow_pcs[i] == here)
+        if(red_pcs[i] == here)
             return true;
     }
 

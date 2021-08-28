@@ -15,8 +15,8 @@
 //#define TRIANGLE_STARTING 615
 #define TRIANGLE_STARTING BOX_STARTING+(BOX_LENGTH/2)-(TRIANGLE_BASE/2)
 
-#define PLAYER_WHITE 1
-#define PLAYER_YELLOW 2
+#define PLAYER_BLACK 1
+#define PLAYER_RED 2
 
 #include<bits/stdc++.h>
 

@@ -8,8 +8,8 @@
 
 using namespace std;
 
-extern pair<int,int> yellow_pcs[16];
-extern pair<int,int> white_pcs[16];
+extern pair<int,int> red_pcs[16];
+extern pair<int,int> black_pcs[16];
 
 extern struct Board
 {

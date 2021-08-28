@@ -7,8 +7,8 @@
 
 using namespace std;
 
-extern pair<int,int> yellow_pcs[16];
-extern pair<int,int> white_pcs[16];
+extern pair<int,int> red_pcs[16];
+extern pair<int,int> black_pcs[16];
 extern struct Board
 {
     pair<int,int> coord;
@@ -96,17 +96,17 @@ bool isMoveSafe(int from,std::pair<int,int> to,int whichPlayer)
 
     pair<int,int> store,check;
 
-    printf("--%d %d--",white_pcs[from].first,white_pcs[from].second);
+    printf("--%d %d--",black_pcs[from].first,black_pcs[from].second);
 
     printf("--%d %d--",to.first,to.second);
 
 
-    if(whichPlayer == PLAYER_WHITE)
+    if(whichPlayer == PLAYER_BLACK)
     {
-        store = white_pcs[from];
-        white_pcs[from] = to;
+        store = black_pcs[from];
+        black_pcs[from] = to;
         //for(int i = 0 ; i < 37 ; i++){
-        //if(board[i].coord == white_pcs[from]){
+        //if(board[i].coord == black_pcs[from]){
 
         for(int j = 0 ; j < 20 ; j++)
         {
@@ -119,27 +119,27 @@ bool isMoveSafe(int from,std::pair<int,int> to,int whichPlayer)
 
                 if(board[j].lines.empty()) break;
 
-                if(board[j].lines.front() == white_pcs[from])
+                if(board[j].lines.front() == black_pcs[from])
                 {
                     printf("????");
                     board[j].lines.pop();
 
-                    if(!pieceAvailable(check)&&whichPiece(board[j].lines.front())==PLAYER_YELLOW)
+                    if(!pieceAvailable(check)&&whichPiece(board[j].lines.front())==PLAYER_RED)
                     {
                         printf(" ???");
-                        //if(whichPiece(board[j].lines.front()) == PLAYER_YELLOW)
-                        white_pcs[from] = store;
+                        //if(whichPiece(board[j].lines.front()) == PLAYER_RED)
+                        black_pcs[from] = store;
                         killMoveSelector();
                         return false;
                     }
 
 
-                    else if(!pieceAvailable(board[j].lines.front())&&whichPiece(check) == PLAYER_YELLOW)
+                    else if(!pieceAvailable(board[j].lines.front())&&whichPiece(check) == PLAYER_RED)
                     {
                         printf("??");
                         //board[j].lines.pop();
                         //if(board[j].lines.front() == store)
-                        white_pcs[from] = store;
+                        black_pcs[from] = store;
                         killMoveSelector();
                         return false;
                     }
@@ -150,7 +150,7 @@ bool isMoveSafe(int from,std::pair<int,int> to,int whichPlayer)
 
 
 
-        white_pcs[from] = store;
+        black_pcs[from] = store;
 
         killMoveSelector();
 
@@ -174,13 +174,13 @@ std::queue<int> threatenedPieces(int whichPlayer)
 
     while(!ret.empty())ret.pop();
 
-    if(whichPlayer==PLAYER_WHITE)
+    if(whichPlayer==PLAYER_BLACK)
     {
 
         for(int i = 0 ; i < 16 ; i++)
         {
 
-            if(!isMoveSafe(i,white_pcs[i],PLAYER_WHITE))
+            if(!isMoveSafe(i,black_pcs[i],PLAYER_BLACK))
             {
                 ret.push(i);
             }
@@ -207,7 +207,7 @@ void gameAI()
 
 
     queue< pair<int,int> > genMoves;
-    //bool a = killMove(indexAI,to,PLAYER_WHITE);
+    //bool a = killMove(indexAI,to,PLAYER_BLACK);
 
     killMoveSelector();
 
@@ -219,10 +219,10 @@ void gameAI()
         killMoveSelector();
 
 
-        if(white_pcs[i] == make_pair(0,0)) continue;
+        if(black_pcs[i] == make_pair(0,0)) continue;
 
 
-        while(recursiveKill(i,PLAYER_WHITE)||recursiveKill2(i,PLAYER_WHITE))
+        while(recursiveKill(i,PLAYER_BLACK)||recursiveKill2(i,PLAYER_BLACK))
         {
             count++;
 
@@ -245,19 +245,19 @@ void gameAI()
 
     generalMoveSelector();
 
-    queue<int> thrPcs = threatenedPieces(PLAYER_WHITE);
+    queue<int> thrPcs = threatenedPieces(PLAYER_BLACK);
 
 
     while(!thrPcs.empty())
     {
-        genMoves = availableGenMoves(white_pcs[thrPcs.front()]);
+        genMoves = availableGenMoves(black_pcs[thrPcs.front()]);
 
         while(!genMoves.empty())
         {
             delay(750);
             printf("\n\n%d %d\n\n",genMoves.front().first,genMoves.front().second);
 
-            if(!isMoveSafe(thrPcs.front(),genMoves.front(),PLAYER_WHITE))
+            if(!isMoveSafe(thrPcs.front(),genMoves.front(),PLAYER_BLACK))
             {
                 printf("__tyhi");
                 genMoves.pop();
@@ -266,7 +266,7 @@ void gameAI()
 
             printf("%d %d",genMoves.front().first,genMoves.front().second);
 
-            white_pcs[thrPcs.front()] = genMoves.front();
+            black_pcs[thrPcs.front()] = genMoves.front();
 
             cleardevice();
             drawBoard();
@@ -288,7 +288,7 @@ void gameAI()
     for(int i = 15 ; i >= 0 ; i--)
     {
 
-        genMoves = availableGenMoves(white_pcs[i]);
+        genMoves = availableGenMoves(black_pcs[i]);
 
 
         while(!genMoves.empty())
@@ -300,7 +300,7 @@ void gameAI()
                 - Find all possible displacement move
             */
 
-            if(!isMoveSafe(i,genMoves.front(),PLAYER_WHITE))
+            if(!isMoveSafe(i,genMoves.front(),PLAYER_BLACK))
             {
                 printf("__aichi");
                 genMoves.pop();
@@ -312,7 +312,7 @@ void gameAI()
 
             //Move the piece
             //Then calculate its
-            white_pcs[i] = genMoves.front();
+            black_pcs[i] = genMoves.front();
 
 
             cleardevice();
@@ -338,14 +338,14 @@ void gameAI()
         generalMoveSelector();
         killMoveSelector();
 
-        genMoves = availableGenMoves(white_pcs[i]);
+        genMoves = availableGenMoves(black_pcs[i]);
 
 
         while(!genMoves.empty())
         {
             delay(500);
-            //if(!isMoveSafe(i,genMoves.front(),PLAYER_WHITE)) {printf("__aichi");genMoves.pop();continue;}
-            white_pcs[i] = genMoves.front();
+            //if(!isMoveSafe(i,genMoves.front(),PLAYER_BLACK)) {printf("__aichi");genMoves.pop();continue;}
+            black_pcs[i] = genMoves.front();
 
             cleardevice();
             drawBoard();
@@ -378,7 +378,7 @@ void gameAI2()
 
 
     queue< pair<int,int> > genMoves;
-    //bool a = killMove(indexAI,to,PLAYER_WHITE);
+    //bool a = killMove(indexAI,to,PLAYER_BLACK);
     killMoveSelector();
     generalMoveSelector();
 
@@ -387,9 +387,9 @@ void gameAI2()
     {
         killMoveSelector();
 
-        if(yellow_pcs[i] == make_pair(0,0)) continue;
+        if(red_pcs[i] == make_pair(0,0)) continue;
 
-        while(recursiveKill(i,PLAYER_YELLOW)||recursiveKill2(i,PLAYER_YELLOW))
+        while(recursiveKill(i,PLAYER_RED)||recursiveKill2(i,PLAYER_RED))
         {
             count++;
             printf("\n\n%d\n\n",count);
@@ -408,18 +408,18 @@ void gameAI2()
     killMoveSelector();
     generalMoveSelector();
 
-    queue<int> thrPcs = threatenedPieces(PLAYER_YELLOW);
+    queue<int> thrPcs = threatenedPieces(PLAYER_RED);
 
     while(!thrPcs.empty())
     {
-        genMoves = availableGenMoves(yellow_pcs[thrPcs.front()]);
+        genMoves = availableGenMoves(red_pcs[thrPcs.front()]);
 
         while(!genMoves.empty())
         {
             delay(750);
             printf("\n\n%d %d\n\n",genMoves.front().first,genMoves.front().second);
 
-            if(!isMoveSafe(thrPcs.front(),genMoves.front(),PLAYER_YELLOW))
+            if(!isMoveSafe(thrPcs.front(),genMoves.front(),PLAYER_RED))
             {
                 printf("__aichi");
                 genMoves.pop();
@@ -427,7 +427,7 @@ void gameAI2()
             }
 
             printf("%d %d",genMoves.front().first,genMoves.front().second);
-            yellow_pcs[thrPcs.front()] = genMoves.front();
+            red_pcs[thrPcs.front()] = genMoves.front();
 
             cleardevice();
             drawBoard();
@@ -445,14 +445,14 @@ void gameAI2()
 
     for(int i = 15 ; i >= 0 ; i--)
     {
-        genMoves = availableGenMoves(yellow_pcs[i]);
+        genMoves = availableGenMoves(red_pcs[i]);
 
         while(!genMoves.empty())
         {
             delay(750);
             printf("\n\n%d %d\n\n",genMoves.front().first,genMoves.front().second);
 
-            if(!isMoveSafe(i,genMoves.front(),PLAYER_YELLOW))
+            if(!isMoveSafe(i,genMoves.front(),PLAYER_RED))
             {
                 printf("__aichi");
                 genMoves.pop();
@@ -461,7 +461,7 @@ void gameAI2()
 
 
             printf("%d %d",genMoves.front().first,genMoves.front().second);
-            yellow_pcs[i] = genMoves.front();
+            red_pcs[i] = genMoves.front();
 
             cleardevice();
             drawBoard();
@@ -484,13 +484,13 @@ void gameAI2()
         generalMoveSelector();
         killMoveSelector();
 
-        genMoves = availableGenMoves(yellow_pcs[i]);
+        genMoves = availableGenMoves(red_pcs[i]);
 
         while(!genMoves.empty())
         {
             delay(500);
-            //if(!isMoveSafe(i,genMoves.front(),PLAYER_WHITE)) {printf("__aichi");genMoves.pop();continue;}
-            yellow_pcs[i] = genMoves.front();
+            //if(!isMoveSafe(i,genMoves.front(),PLAYER_BLACK)) {printf("__aichi");genMoves.pop();continue;}
+            red_pcs[i] = genMoves.front();
 
             cleardevice();
             drawBoard();
@@ -513,9 +513,9 @@ int Finished(){
 
     for(int i = 0 ; i < 16 ; i++){
 
-        if(yellow_pcs[i]==make_pair(0,0)) yc++;
+        if(red_pcs[i]==make_pair(0,0)) yc++;
 
-        if(white_pcs[i]==make_pair(0,0)) wc++;
+        if(black_pcs[i]==make_pair(0,0)) wc++;
     }
 
     ans = (max(yc,wc));
@@ -584,7 +584,7 @@ void AIvAI(){
 
     setcolor(WHITE);
     char a[10];
-    sprintf(a,"%d",score(PLAYER_WHITE));
+    sprintf(a,"%d",score(PLAYER_BLACK));
     outtextxy(100,100,"Game Over. PLAYER BLACK has won, Score:");
     outtextxy(100,125,a);
     outtextxy(100,150,"Return to main menu?");

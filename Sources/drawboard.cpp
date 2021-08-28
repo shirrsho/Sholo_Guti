@@ -7,8 +7,8 @@
 
 using namespace std;
 
-extern pair<int,int> yellow_pcs[16];  // yellow_pcs are basically the red ones
-extern pair<int,int> white_pcs[16];   // white_pcs are basically the black ones
+extern pair<int,int> red_pcs[16];  // red_pcs are basically the red ones
+extern pair<int,int> black_pcs[16];   // black_pcs are basically the black ones
 
 extern struct Board                   // Board coordinate indicating structure
 {
@@ -126,12 +126,12 @@ void drawBoard()
 
     for(int i = 0 ; i < 16 ; i++)
     {
-        //printf("%d %d\n",white_pcs[i].first,white_pcs[i].second);
+        //printf("%d %d\n",black_pcs[i].first,black_pcs[i].second);
         setcolor(BLACK);
-        placePieces(white_pcs[i].first,white_pcs[i].second);
+        placePieces(black_pcs[i].first,black_pcs[i].second);
 
         setcolor(RED);
-        placePieces(yellow_pcs[i].first,yellow_pcs[i].second);
+        placePieces(red_pcs[i].first,red_pcs[i].second);
     }
 
 

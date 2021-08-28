@@ -9,8 +9,8 @@ using namespace std;
 
 extern bool dontChange;
 
-extern pair<int,int> yellow_pcs[16];
-extern pair<int,int> white_pcs[16];
+extern pair<int,int> red_pcs[16];
+extern pair<int,int> black_pcs[16];
 
 extern struct Board
 {
@@ -29,12 +29,12 @@ int score(int who)
 {
     int sc = 0;
 
-    if(who==PLAYER_WHITE)
+    if(who==PLAYER_BLACK)
     {
 
         for(int i = 0 ; i < 16 ; i++)
         {
-            if(white_pcs[i]!=make_pair(0,0)) sc++;
+            if(black_pcs[i]!=make_pair(0,0)) sc++;
         }
 
     }
@@ -43,7 +43,7 @@ int score(int who)
 
         for(int i = 0 ; i < 16 ; i++)
         {
-            if(yellow_pcs[i]!=make_pair(0,0)) sc++;
+            if(red_pcs[i]!=make_pair(0,0)) sc++;
         }
 
     }
@@ -63,9 +63,9 @@ int ifFinished()
     for(int i = 0 ; i < 16 ; i++)
     {
 
-        if(white_pcs[i]!=make_pair(0,0))
+        if(black_pcs[i]!=make_pair(0,0))
         {
-            take = PLAYER_WHITE;
+            take = PLAYER_BLACK;
             break;
 
         }
@@ -75,21 +75,21 @@ int ifFinished()
     for(int i = 0 ; i < 16 ; i++)
     {
 
-        if(yellow_pcs[i]!=make_pair(0,0))
+        if(red_pcs[i]!=make_pair(0,0))
         {
 
-            if(take==PLAYER_WHITE) return 0;
+            if(take==PLAYER_BLACK) return 0;
 
             else{
-                leaderboardSave(PLAYER_YELLOW,score(PLAYER_YELLOW));
-                return PLAYER_YELLOW;
+                leaderboardSave(PLAYER_RED,score(PLAYER_RED));
+                return PLAYER_RED;
             }
 
         }
 
     }
-    leaderboardSave(PLAYER_WHITE,score(PLAYER_WHITE));
-    return PLAYER_WHITE;
+    leaderboardSave(PLAYER_BLACK,score(PLAYER_BLACK));
+    return PLAYER_BLACK;
 }
 
 
@@ -157,11 +157,11 @@ bool mouseControl2(int j, int color)
                     if(pieceAvailable(board[i].coord)) break;
 
 
-                    if(color==PLAYER_WHITE)
-                        take = move_piece(j,i,PLAYER_WHITE);
+                    if(color==PLAYER_BLACK)
+                        take = move_piece(j,i,PLAYER_BLACK);
 
                     else
-                        take = move_piece(j,i,PLAYER_YELLOW);
+                        take = move_piece(j,i,PLAYER_RED);
 
 
                     cleardevice();
@@ -260,20 +260,20 @@ void mouseControl()
                 for(int i = 0 ; i < 16 ; i++)
                 {
 
-                    if(((x>white_pcs[i].first-15)&&(x<white_pcs[i].first+15))&&
-                            ((y>white_pcs[i].second-15)&&(y<white_pcs[i].second+15)))
+                    if(((x>black_pcs[i].first-15)&&(x<black_pcs[i].first+15))&&
+                            ((y>black_pcs[i].second-15)&&(y<black_pcs[i].second+15)))
                     {
 
                         cleardevice();
                         drawBoard();
 
                         setcolor(BLACK);
-                        circle(white_pcs[i].first,white_pcs[i].second,11);
-                        circle(white_pcs[i].first,white_pcs[i].second,12);
-                        circle(white_pcs[i].first,white_pcs[i].second,13);
+                        circle(black_pcs[i].first,black_pcs[i].second,11);
+                        circle(black_pcs[i].first,black_pcs[i].second,12);
+                        circle(black_pcs[i].first,black_pcs[i].second,13);
 
-                        take = mouseControl2(i,PLAYER_WHITE);
-                        //while(!take) take = mouseControl2(i,PLAYER_WHITE);
+                        take = mouseControl2(i,PLAYER_BLACK);
+                        //while(!take) take = mouseControl2(i,PLAYER_BLACK);
 
                         if(take&&AI_MODE) gameAI();
 
@@ -286,19 +286,19 @@ void mouseControl()
 
                 for(int i = 0 ; i < 16 ; i++)
                 {
-                    if(((x>yellow_pcs[i].first-15)&&(x<yellow_pcs[i].first+15))&&
-                            ((y>yellow_pcs[i].second-15)&&(y<yellow_pcs[i].second+15)))
+                    if(((x>red_pcs[i].first-15)&&(x<red_pcs[i].first+15))&&
+                            ((y>red_pcs[i].second-15)&&(y<red_pcs[i].second+15)))
                     {
 
                         cleardevice();
                         drawBoard();
 
                         setcolor(RED);
-                        circle(yellow_pcs[i].first,yellow_pcs[i].second,11);
-                        circle(yellow_pcs[i].first,yellow_pcs[i].second,12);
-                        circle(yellow_pcs[i].first,yellow_pcs[i].second,13);
+                        circle(red_pcs[i].first,red_pcs[i].second,11);
+                        circle(red_pcs[i].first,red_pcs[i].second,12);
+                        circle(red_pcs[i].first,red_pcs[i].second,13);
 
-                        take = mouseControl2(i,PLAYER_YELLOW);
+                        take = mouseControl2(i,PLAYER_RED);
 
                         if(take&&AI_MODE) gameAI();
 
@@ -314,20 +314,20 @@ void mouseControl()
             if(WhitesMove)
                 for(int i = 0 ; i < 16 ; i++)
                 {
-                    if(((x>white_pcs[i].first-15)&&(x<white_pcs[i].first+15))&&
-                            ((y>white_pcs[i].second-15)&&(y<white_pcs[i].second+15)))
+                    if(((x>black_pcs[i].first-15)&&(x<black_pcs[i].first+15))&&
+                            ((y>black_pcs[i].second-15)&&(y<black_pcs[i].second+15)))
                     {
 
                         cleardevice();
                         drawBoard();
 
                         setcolor(BLACK);
-                        circle(white_pcs[i].first,white_pcs[i].second,16);//11);
-                        circle(white_pcs[i].first,white_pcs[i].second,18);//12);
-                        circle(white_pcs[i].first,white_pcs[i].second,20);//13);
+                        circle(black_pcs[i].first,black_pcs[i].second,16);//11);
+                        circle(black_pcs[i].first,black_pcs[i].second,18);//12);
+                        circle(black_pcs[i].first,black_pcs[i].second,20);//13);
 
-                        take = mouseControl2(i,PLAYER_WHITE);
-                        //while(!take) take = mouseControl2(i,PLAYER_WHITE);
+                        take = mouseControl2(i,PLAYER_BLACK);
+                        //while(!take) take = mouseControl2(i,PLAYER_BLACK);
 
                         if(take&&AI_MODE) gameAI();
 
@@ -339,19 +339,19 @@ void mouseControl()
             else
                 for(int i = 0 ; i < 16 ; i++)
                 {
-                    if(((x>yellow_pcs[i].first-15)&&(x<yellow_pcs[i].first+15))&&
-                            ((y>yellow_pcs[i].second-15)&&(y<yellow_pcs[i].second+15)))
+                    if(((x>red_pcs[i].first-15)&&(x<red_pcs[i].first+15))&&
+                            ((y>red_pcs[i].second-15)&&(y<red_pcs[i].second+15)))
                     {
 
                         cleardevice();
                         drawBoard();
 
                         setcolor(RED);
-                        circle(yellow_pcs[i].first,yellow_pcs[i].second,16);//11);
-                        circle(yellow_pcs[i].first,yellow_pcs[i].second,18);//12);
-                        circle(yellow_pcs[i].first,yellow_pcs[i].second,20);//13);
+                        circle(red_pcs[i].first,red_pcs[i].second,16);//11);
+                        circle(red_pcs[i].first,red_pcs[i].second,18);//12);
+                        circle(red_pcs[i].first,red_pcs[i].second,20);//13);
 
-                        take = mouseControl2(i,PLAYER_YELLOW);
+                        take = mouseControl2(i,PLAYER_RED);
 
                         if(take&&AI_MODE) gameAI();
 

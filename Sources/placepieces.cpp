@@ -5,8 +5,8 @@
 
 using namespace std;
 
-extern pair<int,int> yellow_pcs[16];
-extern pair<int,int> white_pcs[16];
+extern pair<int,int> red_pcs[16];
+extern pair<int,int> black_pcs[16];
 
 extern struct Board
 {
@@ -38,8 +38,8 @@ int whichPiece(pair<int,int>x)
 
     for(int i = 0; i<16 ; i++)
     {
-        if(x==white_pcs[i]) return PLAYER_WHITE;
-        if(x==yellow_pcs[i]) return PLAYER_YELLOW;
+        if(x==black_pcs[i]) return PLAYER_BLACK;
+        if(x==red_pcs[i]) return PLAYER_RED;
     }
 
     return 0;
