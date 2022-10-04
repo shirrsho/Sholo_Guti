@@ -1,5 +1,3 @@
-https://github.com/shirsho1106/Sholo_Guti/
-
 # Sholo_Guti
 
 
